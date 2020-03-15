@@ -1,0 +1,97 @@
+/* Main styles */
+@import 'components/main';
+@import 'components/nav';
+@import 'components/footer';
+
+@import 'components/work_item';
+@import 'components/post_item';
+@import 'components/nonprofit_item';
+
+.landing-header-wrapper {
+    padding: 0 $wide-padding;
+    margin-bottom: 64px;
+    .landing-header {
+        max-width: 1250px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $white;
+        border-radius: 2px;
+        .inside-div {
+            padding: 36px 24px;
+            h2 {
+                margin: 0;
+                font-weight: 700;
+                font-size: 2em;
+                span {
+                    background-color: #e8eefe;
+                    padding: 0px 4px;
+                    border-radius: 2px;
+                    transition: 0.2s;
+                    &:hover {
+                        background-color: #c2d3fd;
+                    }
+                }
+            }
+            .bottom {
+                margin-top: 48px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+                .bottom-item {
+                    width: 50%;
+                    h6 {
+                        margin: 0;
+                        margin-bottom: 5px;
+                        font-size: $font-base;
+                        font-weight: 500;
+                    }
+                    p {
+                        font-size: $font-small;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section-wrapper {
+    padding: 0 $wide-padding;
+    margin-bottom: 72px;
+    .section {
+        max-width: 1250px;
+        margin-left: auto;
+        margin-right: auto;
+        h3 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin: 0;
+        }
+        .header-desc {
+            margin-top: 4px;
+            font-size: $font-base;
+            color: $dark-gray;
+        }
+        .section-content-wrapper {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            .section-content {
+
+            }
+        }
+    }
+}
+
+.work-item-sleeve .work-item-wrapper:first-child {
+    margin-left: 0;
+}
+.work-item-sleeve .work-item-wrapper:last-child {
+    margin-right: 0;
+}
+
+.post-item-sleeve .post-item-wrapper:first-child {
+    margin-left: 0;
+}
+.post-item-sleeve .post-item-wrapper:last-child {
+    margin-right: 0;
+}

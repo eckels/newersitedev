@@ -1,0 +1,55 @@
+.nonprofit-item-sleeve {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.nonprofit-item-sleeve .nonprofit-item-wrapper:first-child {
+    margin-left: 0;
+}
+.nonprofit-item-sleeve .nonprofit-item-wrapper:last-child {
+    margin-right: 0;
+}
+
+.nonprofit-item-wrapper {
+    flex: 1 1 19%;
+    background-color: $white;
+    box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    margin: 7px 7px;
+    position: relative;
+    top: 0px;
+    transition: all 0.15s;
+    .nonprofit-item {
+        padding: 12px;
+        .top {
+            width: 100%;
+            height: 120px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .bottom {
+            h5 {
+                color: $black;
+                font-size: 1.15em;
+                margin: 0;
+                margin-top: 5px;
+                margin-bottom: 4px;
+            }
+            .desc {
+                color: $dark-gray;
+                font-size: $font-base;
+                margin-bottom: 24px;
+            }
+            .region {
+                font-size: $font-smaller;
+                color: $dark-gray;
+            }
+        }
+    }
+    &:hover {
+        top: -4px;
+        box-shadow: 0 6px 6px 0px rgba(0, 0, 0, 0.05);
+    }
+}

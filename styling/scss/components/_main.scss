@@ -1,0 +1,85 @@
+/* Constants */
+$white: #FFFFFF;
+$black: #2a2a2a;
+$dark-gray: #797979;
+$light-gray: #fafaff;
+$background: #fafafa;
+$accent-color: #2a64f8;
+$accent-color-highlight: #5b88fa;
+
+$font-base: 0.95em;
+$font-small: 0.9em;
+$font-smaller: 0.8em;
+
+$wide-padding: 28px;
+$small-padding: 18px;
+
+
+/* Base styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: $background;
+}
+
+p {
+    color: $black;
+    margin: 0;
+    padding: 0;
+    line-height: 145%;
+    font-weight: 400;
+}
+
+a {
+    color: $accent-color;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+a:hover {
+    color: $accent-color-highlight;
+}
+
+/* Link styling */
+.link-arrow-wrap {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.link-arrow {
+    transition: all 0.2s;
+    display: inline-block;
+}
+.link-arrow:after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    background: url(../../img/arrow.svg) no-repeat center right;
+    background-size: contain;
+    width: 30px;
+    height: 19px;
+    vertical-align: text-bottom;
+    left: 0px;
+    transition: all 0.2s;
+}
+
+.link-arrow:hover:after {
+    left: 7px;
+}
+
+.link-arrow:hover {
+    color: $accent-color-highlight;
+    a {
+        color: $accent-color-highlight;
+    }
+}
+
+.link-arrow {
+    color: $accent-color;
+    a {
+        color: $accent-color;
+        text-decoration: none;
+    }
+}

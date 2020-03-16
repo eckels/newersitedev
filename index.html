@@ -27,6 +27,9 @@
     </head>
 
     <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/base.js"></script>
+        <script src="js/card.js"></script>
         <nav>
             <div class="nav-wrapper">
                 <a href="index.html"><div class="nav-logo">
@@ -78,7 +81,7 @@
                                             <h4>The Cambridge Group</h4>
                                         </div>
                                         <div class="middle">
-                                            <p class="desc">Built a CMS and redesigned the corporate website for The Cambridge Group, a boutique strategy consulting group that works with Fortune 500 companies.</p>
+                                            <p class="work-desc">Built a CMS and redesigned the corporate website for The Cambridge Group, a boutique strategy consulting group that works with Fortune 500 companies.</p>
                                             <p class="date">Nov 2019 - Mar 2020</p>
                                         </div>
                                     </div>
@@ -93,7 +96,7 @@
                                             <h4>Life After Hate</h4>
                                         </div>
                                         <div class="middle">
-                                            <p class="desc">Worked with nonprofit Life After Hate to create a centralized resource platform to enable quick search of internal data.</p>
+                                            <p class="work-desc">Worked with nonprofit Life After Hate to create a centralized resource platform to enable quick search of internal data.</p>
                                             <p class="date">Sept 2019 - Present</p>
                                         </div>
                                     </div>
@@ -108,7 +111,7 @@
                                             <h4>Cover Me App</h4>
                                         </div>
                                         <div class="middle">
-                                            <p class="desc">Co-founded an app that posts bars' drink deals and cover prices by using crowd sourced data from over 12,000 users.</p>
+                                            <p class="work-desc">Co-founded an app that posts bars' drink deals and cover prices by using crowd sourced data from over 12,000 users.</p>
                                             <p class="date">Nov 2018 - Present</p>
                                         </div>
                                     </div>
@@ -138,8 +141,10 @@
                                             <img src="img/bround.jpg" alt="" />
                                         </div>
                                         <div class="post-body">
-                                            <h3>Article title will go here and will be about this long</h3>
-                                            <p class="category">Product Design</p>
+                                            <div class="post-target">
+                                                <h3>Article title will go here and will be about this long but this one will be longer, a lot longer</h3>
+                                                <p class="category">Product Design</p>
+                                            </div>
                                             <p class="date">Jan 29, 2020</p>
                                         </div>
                                     </div>
@@ -150,11 +155,13 @@
                                 <a href="">
                                     <div class="post-item">
                                         <div class="post-image-wrap">
-                                            <img src="img/bround2.jpg" alt="" />
+                                            <img src="img/bround.jpg" alt="" />
                                         </div>
                                         <div class="post-body">
-                                            <h3>Article title will go here and will be about this long</h3>
-                                            <p class="category">Product Design</p>
+                                            <div class="post-target">
+                                                <h3>Article title will go here and will be about this long</h3>
+                                                <p class="category">Product Design</p>
+                                            </div>
                                             <p class="date">Jan 29, 2020</p>
                                         </div>
                                     </div>
@@ -165,11 +172,13 @@
                                 <a href="">
                                     <div class="post-item">
                                         <div class="post-image-wrap">
-                                            <img src="img/bround3.jpg" alt="" />
+                                            <img src="img/bround.jpg" alt="" />
                                         </div>
                                         <div class="post-body">
-                                            <h3>Article title will go here and will be about this long</h3>
-                                            <p class="category">Product Design</p>
+                                            <div class="post-target">
+                                                <h3>Article title will go here and will be about this long</h3>
+                                                <p class="category">Product Design</p>
+                                            </div>
                                             <p class="date">Jan 29, 2020</p>
                                         </div>
                                     </div>
@@ -198,8 +207,10 @@
                                     <div class="nonprofit-item">
                                         <div class="top" style="background-image: url('img/keurig-logo.png');"></div>
                                         <div class="bottom">
-                                            <h5>Nonprofit name here</h5>
-                                            <p class="desc">Short description here that maybe takes two lines</p>
+                                            <div class="nonprofit-target">
+                                                <h5>Nonprofit name here</h5>
+                                                <p class="desc">Short description here that maybe takes two lines</p>
+                                            </div>
                                             <p class="region">Australia</p>
                                         </div>
                                     </div>
@@ -211,8 +222,10 @@
                                     <div class="nonprofit-item">
                                         <div class="top" style="background-image: url('img/keurig-logo.png');"></div>
                                         <div class="bottom">
-                                            <h5>Nonprofit name here</h5>
-                                            <p class="desc">Short description here that maybe takes two lines</p>
+                                            <div class="nonprofit-target">
+                                                <h5>Nonprofit name here but this one is really long</h5>
+                                                <p class="desc">Short description here that maybe takes two lines</p>
+                                            </div>
                                             <p class="region">Australia</p>
                                         </div>
                                     </div>
@@ -224,8 +237,10 @@
                                     <div class="nonprofit-item">
                                         <div class="top" style="background-image: url('img/keurig-logo.png');"></div>
                                         <div class="bottom">
-                                            <h5>Nonprofit name here</h5>
-                                            <p class="desc">Short description here that maybe takes two lines</p>
+                                            <div class="nonprofit-target">
+                                                <h5>Nonprofit name here</h5>
+                                                <p class="desc">Short description here that maybe takes two lines</p>
+                                            </div>
                                             <p class="region">Australia</p>
                                         </div>
                                     </div>
@@ -237,8 +252,10 @@
                                     <div class="nonprofit-item">
                                         <div class="top" style="background-image: url('img/keurig-logo.png');"></div>
                                         <div class="bottom">
-                                            <h5>Nonprofit name here</h5>
-                                            <p class="desc">Short description here that maybe takes two lines</p>
+                                            <div class="nonprofit-target">
+                                                <h5>Nonprofit name here</h5>
+                                                <p class="desc">Short description here that maybe takes two lines</p>
+                                            </div>
                                             <p class="region">Australia</p>
                                         </div>
                                     </div>
@@ -250,8 +267,10 @@
                                     <div class="nonprofit-item">
                                         <div class="top" style="background-image: url('img/keurig-logo.png');"></div>
                                         <div class="bottom">
-                                            <h5>Nonprofit name here</h5>
-                                            <p class="desc">Short description here that maybe takes two lines</p>
+                                            <div class="nonprofit-target">
+                                                <h5>Nonprofit name here</h5>
+                                                <p class="desc">Short description here that maybe takes two lines</p>
+                                            </div>
                                             <p class="region">Australia</p>
                                         </div>
                                     </div>
@@ -279,8 +298,5 @@
                 </div>
             </div>
         </footer>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/base.js"></script>
 
     </body>

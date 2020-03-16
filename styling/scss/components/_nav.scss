@@ -35,3 +35,10 @@ nav {
         }
     }
 }
+
+@media (max-width: 650px) {
+    nav {
+        padding: 12px $small-padding;
+        padding-top: 16px;
+    }
+}

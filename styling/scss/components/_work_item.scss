@@ -36,10 +36,11 @@
         }
         .middle {
             font-weight: 400;
-            .desc {
+            .work-desc {
                 color: $dark-gray;
                 font-size: $font-base;
                 margin-bottom: 30px;
+                height: auto;
             }
             .date {
                 font-size: $font-smaller;
@@ -50,5 +51,20 @@
     &:hover {
         top: -4px;
         box-shadow: 0 6px 6px 0px rgba(0, 0, 0, 0.05);
+    }
+}
+
+@media (max-width: 900px) {
+    .work-item-wrapper {
+        flex: 0 1 auto;
+        margin: 1%;
+        width: 48%;
+    }
+}
+
+@media (max-width: 500px) {
+    .work-item-wrapper {
+        margin: 2% 0;
+        width: 100%;
     }
 }

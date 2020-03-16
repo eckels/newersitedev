@@ -303,7 +303,6 @@ footer .footer-inner .right img:hover {
 }
 @media (max-width: 500px) {
   .post-item-wrapper {
-    margin: 9px 9px;
     margin: 2% 0;
     width: 100%;
   }
@@ -396,7 +395,7 @@ footer .footer-inner .right img:hover {
     height: 120px;
   }
 }
-@media (max-width: 680px) {
+@media (max-width: 375px) {
   .nonprofit-item-wrapper {
     margin: 1%;
     width: 48%;
@@ -408,7 +407,7 @@ footer .footer-inner .right img:hover {
     height: 120px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 350px) {
   .nonprofit-item-wrapper {
     margin: 2% 0;
     width: 100%;

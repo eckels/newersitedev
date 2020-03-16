@@ -4,7 +4,7 @@ var maxHeightNonprofit = 0;
 
 var workWidth = 500;
 var postWidth = 500;
-var nonprofitWidth = 360;
+var nonprofitWidth = 350;
 
 $(document).ready(function() {
     $(".work-desc").each(function() {

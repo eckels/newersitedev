@@ -1,9 +1,6 @@
 footer {
-    padding: 28px $wide-padding;
+    padding: 28px 0;
     .footer-inner {
-        max-width: 1250px;
-        margin-left: auto;
-        margin-right: auto;
         width: 100%;
         display: flex;
         justify-content: flex-start;
@@ -32,6 +29,6 @@ footer {
 
 @media (max-width: 650px) {
     footer {
-        padding: 24px $small-padding;
+        padding: 24px 0;
     }
 }

@@ -6,8 +6,25 @@ html, body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   background-color: #fafafa;
+  color: #2a2a2a;
 }
 
+.body-wrap {
+  padding: 0 28px;
+}
+
+.body-wrap-inner {
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (max-width: 650px) {
+  .body-wrap {
+    padding: 0 16px;
+  }
+}
 p {
   color: #2a2a2a;
   margin: 0;
@@ -72,12 +89,9 @@ a:hover {
 }
 
 nav {
-  padding: 16px 28px;
+  padding: 16px 0;
 }
 nav .nav-wrapper {
-  max-width: 1250px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -109,17 +123,13 @@ nav .nav-wrapper ul li {
 
 @media (max-width: 650px) {
   nav {
-    padding: 12px 16px;
-    padding-top: 16px;
+    padding-bottom: 12px;
   }
 }
 footer {
-  padding: 28px 28px;
+  padding: 28px 0;
 }
 footer .footer-inner {
-  max-width: 1250px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -145,7 +155,7 @@ footer .footer-inner .right img:hover {
 
 @media (max-width: 650px) {
   footer {
-    padding: 24px 16px;
+    padding: 24px 0;
   }
 }
 .work-item-sleeve {
@@ -272,11 +282,11 @@ footer .footer-inner .right img:hover {
   box-shadow: 0 5px 6px 0px rgba(0, 0, 0, 0.05);
 }
 .post-item-wrapper:hover .post-image-wrap img {
-  -o-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 .post-item-wrapper:hover .post-body h3 {
   color: #2a64f8;
@@ -420,15 +430,12 @@ footer .footer-inner .right img:hover {
   }
 }
 .landing-header-wrapper {
-  padding: 0 28px;
   margin-bottom: 64px;
 }
 .landing-header-wrapper .landing-header {
-  max-width: 1250px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: #FFFFFF;
-  border-radius: 2px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
 }
 .landing-header-wrapper .landing-header .inside-div {
   padding: 36px 24px;
@@ -469,13 +476,7 @@ footer .footer-inner .right img:hover {
 }
 
 .section-wrapper {
-  padding: 0 28px;
   margin-bottom: 80px;
-}
-.section-wrapper .section {
-  max-width: 1250px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .section-wrapper .section h3 {
   font-size: 1.5em;
@@ -493,12 +494,10 @@ footer .footer-inner .right img:hover {
 }
 @media (max-width: 650px) {
   .section-wrapper {
-    padding: 0 16px;
     margin-bottom: 64px;
   }
 
   .landing-header-wrapper {
-    padding: 0 16px;
     margin-bottom: 64px;
   }
 }

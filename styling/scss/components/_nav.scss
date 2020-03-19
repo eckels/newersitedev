@@ -1,9 +1,6 @@
 nav {
-    padding: 16px $wide-padding;
+    padding: 16px 0;
     .nav-wrapper {
-        max-width: 1250px;
-        margin-left: auto;
-        margin-right: auto;
         width: 100%;
         display: flex;
         justify-content: flex-start;
@@ -38,7 +35,6 @@ nav {
 
 @media (max-width: 650px) {
     nav {
-        padding: 12px $small-padding;
-        padding-top: 16px;
+        padding-bottom: 12px;
     }
 }

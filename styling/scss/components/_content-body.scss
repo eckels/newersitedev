@@ -1,0 +1,66 @@
+.body-content {
+    h3 {
+        color: $black;
+        margin: 18px 0;
+        font-size: 1.75em;
+    }
+    h5 {
+        color: $black;
+        margin: 15px 0;
+        font-size: 1.5em;
+    }
+    p, b, i, u, strike, a, li, blockquote {
+        font-size: 1.05em;
+        line-height: 170%;
+    }
+    p {
+        margin: 12px 0 24px 0;
+    }
+    a {
+        border-bottom: solid $accent-color 1px;
+        &:hover {
+            border-bottom: solid $accent-color-highlight 1px;
+        }
+    }
+    ul, ol {
+        line-height: 170%;
+    }
+    blockquote {
+        border-left: solid rgba($color: $accent-color, $alpha: 0.75) 2px;
+        padding-left: 8px;
+        margin-left: 18px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .image-wrap {
+        text-align: center;
+    }
+    img {
+        max-width: 100%;
+        max-height: 600px;
+        width: auto;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .caption {
+        color: $dark-gray;
+        font-size: $font-base;
+        text-align: center;
+        margin-top: -8px;
+    }
+}
+
+@media (max-width: 650px) {
+    .body-content {
+        h3 {
+            font-size: 1.6em;
+        }
+        h5 {
+            font-size: 1.25em;
+        }
+    }
+}

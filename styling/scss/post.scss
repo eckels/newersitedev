@@ -1,0 +1,68 @@
+/* Main styles */
+@import 'components/main';
+@import 'components/nav';
+@import 'components/footer';
+
+@import 'components/content-body';
+
+.post-header-wrapper {
+    margin-bottom: 24px;
+    .post-header {
+        width: 100%;
+        height: 250px;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.post-body-wrapper {
+    margin-bottom: 48px;
+    .post-body {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        .post-body-header {
+            margin-bottom: 48px;
+            h1 {
+                color: $black;
+                margin: 0;
+                margin-bottom: 12px;
+                font-size: 2.25em;
+            }
+            .date, .category {
+                margin: 0;
+                font-size: $font-base;
+                color: $dark-gray;
+            }
+            .category {
+                margin-bottom: 6px;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .post-header-wrapper {
+        margin-bottom: 18px;
+        .post-header {
+            height: 180px;
+            border-radius: 3px;
+            box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    .post-body-wrapper {
+        margin-bottom: 48px;
+        .post-body {
+            .post-body-header {
+                margin-bottom: 48px;
+                h1 {
+                    font-size: 1.9em;
+                }
+            }
+        }
+    }
+}

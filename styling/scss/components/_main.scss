@@ -143,3 +143,13 @@ a:hover {
         }
     }
 }
+
+@media (max-width: 650px) {
+    .basic-header-wrapper {
+        .basic-header {
+            h1 {
+                font-size: 2em;
+            }
+        }
+    }
+}

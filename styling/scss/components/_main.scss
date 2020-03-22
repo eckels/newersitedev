@@ -99,3 +99,47 @@ a:hover {
         text-decoration: none;
     }
 }
+
+.section-wrapper {
+    margin-bottom: 80px;
+    .section {
+        h3 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin: 0;
+        }
+        .header-desc {
+            margin-top: 4px;
+            font-size: $font-base;
+            color: $dark-gray;
+        }
+        .section-content-wrapper {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            .section-content {
+
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .section-wrapper {
+        margin-bottom: 64px;
+    }
+    .landing-header-wrapper {
+        margin-bottom: 64px;
+    }
+}
+
+.basic-header-wrapper {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    .basic-header {
+        h1 {
+            color: $black;
+            font-size: 2.25em;
+            margin: 0;
+        }
+    }
+}

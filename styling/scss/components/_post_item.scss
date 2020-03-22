@@ -5,11 +5,17 @@
     flex-wrap: wrap;
 }
 
-.post-item-wrapper {
+.post-fill {
     flex: 1 1 30%;
+    margin: 0 9px;
+    height: 1px !important;
+}
+
+.post-item-wrapper {
     background-color: $white;
     box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
+    flex: 1 1 30%;
     margin: 9px 9px;
     position: relative;
     top: 0px;

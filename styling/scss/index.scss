@@ -53,38 +53,6 @@
     }
 }
 
-.section-wrapper {
-    margin-bottom: 80px;
-    .section {
-        h3 {
-            font-size: 1.5em;
-            font-weight: 500;
-            margin: 0;
-        }
-        .header-desc {
-            margin-top: 4px;
-            font-size: $font-base;
-            color: $dark-gray;
-        }
-        .section-content-wrapper {
-            margin-top: 12px;
-            margin-bottom: 12px;
-            .section-content {
-
-            }
-        }
-    }
-}
-
-@media (max-width: 650px) {
-    .section-wrapper {
-        margin-bottom: 64px;
-    }
-    .landing-header-wrapper {
-        margin-bottom: 64px;
-    }
-}
-
 @media (min-width: 901px) {
     .work-item-sleeve .work-item-wrapper:first-child {
         margin-left: 0;

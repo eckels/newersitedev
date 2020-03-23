@@ -114,8 +114,14 @@ a:hover {
     margin-bottom: 64px;
   }
 }
+.post-fill {
+  flex: 1 1 30%;
+  margin: 0 9px;
+  height: 1px !important;
+}
+
 .basic-header-wrapper {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   height: 180px;
   border-radius: 3px;
   box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
@@ -135,7 +141,7 @@ a:hover {
 
 @media (max-width: 650px) {
   .basic-header-wrapper {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
     height: 130px;
   }
   .basic-header-wrapper .basic-header {
@@ -214,6 +220,80 @@ footer .footer-inner .right img:hover {
 @media (max-width: 650px) {
   footer {
     padding: 24px 0;
+  }
+}
+.work-item-sleeve {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.work-item-wrapper {
+  flex: 1 1 30%;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  margin: 9px 9px;
+  position: relative;
+  top: 0px;
+  transition: all 0.15s;
+}
+.work-item-wrapper .work-item {
+  padding: 12px;
+}
+.work-item-wrapper .work-item .top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.work-item-wrapper .work-item .top img {
+  height: 35px;
+  width: auto;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+.work-item-wrapper .work-item .top h4 {
+  color: #2a2a2a;
+  font-size: 1.25em;
+  margin: 0;
+  font-weight: 500;
+}
+.work-item-wrapper .work-item .middle {
+  font-weight: 400;
+}
+.work-item-wrapper .work-item .middle .work-desc {
+  color: #797979;
+  font-size: 0.95em;
+  margin-bottom: 30px;
+  height: auto;
+}
+.work-item-wrapper .work-item .middle .date {
+  font-size: 0.8em;
+  color: #797979;
+}
+.work-item-wrapper:hover {
+  top: -4px;
+  box-shadow: 0 6px 6px 0px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 900px) {
+  .work-item-wrapper {
+    flex: 0 1 auto;
+    margin: 1%;
+    width: 48%;
+  }
+}
+@media (max-width: 500px) {
+  .work-item-wrapper {
+    margin: 2% 0;
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .section-wrapper {
+    margin-bottom: 42px !important;
   }
 }
 

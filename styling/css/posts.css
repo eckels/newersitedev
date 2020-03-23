@@ -114,8 +114,14 @@ a:hover {
     margin-bottom: 64px;
   }
 }
+.post-fill {
+  flex: 1 1 30%;
+  margin: 0 9px;
+  height: 1px !important;
+}
+
 .basic-header-wrapper {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   height: 180px;
   border-radius: 3px;
   box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
@@ -135,7 +141,7 @@ a:hover {
 
 @media (max-width: 650px) {
   .basic-header-wrapper {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
     height: 130px;
   }
   .basic-header-wrapper .basic-header {
@@ -221,12 +227,6 @@ footer .footer-inner .right img:hover {
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: wrap;
-}
-
-.post-fill {
-  flex: 1 1 30%;
-  margin: 0 9px;
-  height: 1px !important;
 }
 
 .post-item-wrapper {
@@ -322,6 +322,11 @@ footer .footer-inner .right img:hover {
   }
   .post-item-wrapper .post-item .post-body .date {
     margin-top: 32px;
+  }
+}
+@media (max-width: 650px) {
+  .section-wrapper {
+    margin-bottom: 42px !important;
   }
 }
 

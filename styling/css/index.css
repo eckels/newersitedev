@@ -115,18 +115,35 @@ a:hover {
   }
 }
 .basic-header-wrapper {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  height: 180px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.basic-header-wrapper .basic-header {
+  padding: 24px;
+  display: flex;
+  align-items: center;
 }
 .basic-header-wrapper .basic-header h1 {
   color: #2a2a2a;
-  font-size: 2.25em;
+  font-size: 2.6em;
   margin: 0;
 }
 
 @media (max-width: 650px) {
+  .basic-header-wrapper {
+    margin-bottom: 18px;
+    height: 130px;
+  }
+  .basic-header-wrapper .basic-header {
+    padding: 16px;
+    height: 90px;
+  }
   .basic-header-wrapper .basic-header h1 {
-    font-size: 2em;
+    font-size: 2.15em;
   }
 }
 nav {

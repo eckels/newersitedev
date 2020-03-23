@@ -129,6 +129,7 @@ a:hover {
   background-repeat: no-repeat;
 }
 .basic-header-wrapper .basic-header {
+  height: 120px;
   padding: 24px;
   display: flex;
   align-items: center;

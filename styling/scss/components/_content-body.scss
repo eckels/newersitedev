@@ -1,12 +1,12 @@
 .body-content {
     h3 {
         color: $black;
-        margin: 18px 0;
+        margin: 30px 0 18px 0;
         font-size: 1.75em;
     }
     h5 {
         color: $black;
-        margin: 15px 0;
+        margin: 24px 0 15px 0;
         font-size: 1.5em;
     }
     p, b, i, u, strike, a, li, blockquote {
@@ -53,6 +53,9 @@
         font-size: $font-base;
         text-align: center;
         margin-top: -8px;
+    }
+    div.center {
+        text-align: center;
     }
 }
 

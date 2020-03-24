@@ -226,12 +226,12 @@ footer .footer-inner .right img:hover {
 }
 .body-content h3 {
   color: #2a2a2a;
-  margin: 18px 0;
+  margin: 30px 0 18px 0;
   font-size: 1.75em;
 }
 .body-content h5 {
   color: #2a2a2a;
-  margin: 15px 0;
+  margin: 24px 0 15px 0;
   font-size: 1.5em;
 }
 .body-content p, .body-content b, .body-content i, .body-content u, .body-content strike, .body-content a, .body-content li, .body-content blockquote {
@@ -279,6 +279,9 @@ footer .footer-inner .right img:hover {
   text-align: center;
   margin-top: -8px;
 }
+.body-content div.center {
+  text-align: center;
+}
 
 @media (max-width: 650px) {
   .body-content h3 {
@@ -293,7 +296,7 @@ footer .footer-inner .right img:hover {
 }
 .work-header-wrapper .work-header {
   width: 100%;
-  height: 250px;
+  height: 280px;
   border-radius: 3px;
   box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
   background-size: cover;
@@ -384,6 +387,9 @@ footer .footer-inner .right img:hover {
 .work-header-text-wrapper .work-header-text .sub-title .right .right-item p {
   color: #797979;
 }
+.work-header-text-wrapper .work-header-text .sub-title .right .right-item p span {
+  color: #2a2a2a;
+}
 
 @media (max-width: 900px) {
   .work-header-text-wrapper .work-header-text .title {
@@ -470,11 +476,39 @@ img.wide {
   padding-bottom: 32px;
 }
 
+img.shadow {
+  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 650px) {
   img.wide {
     padding-top: 24px;
     padding-bottom: 24px;
   }
+}
+.github-wrap {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+.github-wrap .github {
+  text-align: center;
+}
+.github-wrap .github img {
+  height: 42px;
+  width: auto;
+  margin-bottom: 6px;
+  opacity: 0.65;
+  transition: all 0.2s;
+}
+.github-wrap .github p {
+  color: #797979;
+  transition: 0.2s;
+}
+.github-wrap .github:hover img {
+  opacity: 0.9;
+}
+.github-wrap .github:hover p {
+  color: #2a2a2a;
 }
 
 /*# sourceMappingURL=project.css.map */

@@ -154,7 +154,7 @@ a:hover {
   }
 }
 nav {
-  padding: 16px 0;
+  padding: 24px 0;
 }
 nav .nav-wrapper {
   width: 100%;
@@ -189,7 +189,7 @@ nav .nav-wrapper ul li {
 
 @media (max-width: 650px) {
   nav {
-    padding-bottom: 12px;
+    padding: 16px 0 12px 0;
   }
 }
 footer {

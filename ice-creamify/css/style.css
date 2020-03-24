@@ -1,0 +1,248 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #D8E9F0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@font-face {
+  font-family: Bohemia;
+  src: url('../fonts/OstrichSans-Bold.otf');
+}
+
+.awning {
+  width: 66%;
+  margin: 30px 17% -126px 17%;
+}
+
+.header {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: Bohemia;
+  font-size: 900%;
+  text-align: center;
+  color: #454553;
+  text-shadow: #EB586F 5px 5px;
+  margin: 0;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  margin-left: 13px;
+  animation-name: flicker;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flicker {
+  0% {text-shadow: #EB586F 5px 5px;}
+  5% {text-shadow: #EB586F 5px 5px;}
+  10% {text-shadow: #454553 5px 5px;}
+  15% {text-shadow: #EB586F 5px 5px;}
+  20% {text-shadow: #EB586F 5px 5px;}
+  25% {text-shadow: #454553 5px 5px;}
+  30% {text-shadow: #EB586F 5px 5px;}
+  35% {text-shadow: #EB586F 5px 5px;}
+  40% {text-shadow: #EB586F 5px 5px;}
+  45% {text-shadow: #EB586F 5px 5px;}
+  50% {text-shadow: #EB586F 5px 5px;}
+  55% {text-shadow: #EB586F 5px 5px;}
+  60% {text-shadow: #EB586F 5px 5px;}
+  65% {text-shadow: #EB586F 5px 5px;}
+  70% {text-shadow: #454553 5px 5px;}
+  75% {text-shadow: #EB586F 5px 5px;}
+  80% {text-shadow: #EB586F 5px 5px;}
+  85% {text-shadow: #EB586F 5px 5px;}
+  90% {text-shadow: #EB586F 5px 5px;}
+  95% {text-shadow: #EB586F 5px 5px;}
+  100% {text-shadow: #EB586F 5px 5px;}
+}
+
+hr {
+  margin: 0;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+  border: solid #4AA0D5 2px;
+  box-shadow: #454553 3px 3px;
+}
+
+.header p {
+  text-align: center;
+  color: #454553;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+input {
+  background-color: white;
+  outline: none;
+  border: solid #D3D3D3 3px;
+  padding: 15px 15px 15px 45px;
+  font-size: 150%;
+  transition: border-color, background-image .3s;
+  border-radius: 5px 0 0 5px;
+  margin: 0;
+  margin-top: 30px;
+  background-image: url('../img/icon_gray.png');
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+}
+
+input:focus {
+  border-color: #454553;
+  background-image: url('../img/icon_black.png');
+}
+
+button {
+  background-color: #EB586F;
+  margin: 0;
+  margin-left: -4px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: white;
+  font-size: 150%;
+  padding: 18px;
+  outline: none;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bc4658;
+}
+
+button:active {
+  background-color: #bc4658;
+}
+
+.icecream {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cone {
+  text-align: center;
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 190px solid #966340;
+  z-index: 2;
+  display: block;
+  margin-top: -25px;
+  margin-bottom: 100px;
+}
+
+.stem {
+  font-size: 250%;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin-bottom: -25px;
+  margin-top: 0;
+}
+
+.cherry {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50% 50% 40% 40%;
+  text-align: center;
+  vertical-align: middle;
+  display: block;
+  margin-left: 40px;
+  margin-bottom: -15px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+.scoop1, .scoop2, .scoop3, .scoop4, .scoop5, .scoop6, .scoop7, .scoop8, .scoop9, .scoop10 {
+  background-color: purple;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  margin-top: 0px;
+  font-size: 450%;
+  width: 130px;
+  height: 130px;
+  border-radius: 50% 50% 35% 35%;
+  display: block;
+  font-family: 'Leckerli One', cursive;
+  text-shadow: 3px 3px black;
+  margin-left: 4px;
+  margin-bottom: -25px;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+/*Vanilla*/
+.scoop1 {
+  background-color: burlywood;
+}
+
+/*Chocolate*/
+.scoop2 {
+  background-color: #4E2E28;
+}
+
+/*Mint-Chocolate Chip*/
+.scoop3 {
+  background-color: mediumspringgreen;
+  background-image: url('../img/choco_chips.png');
+  background-repeat: repeat;
+  background-size: 50px;
+}
+
+/*Strawberry*/
+.scoop4 {
+background-color: palevioletred;
+background-image: url('../img/strawberry.png');
+background-repeat: repeat;
+background-size: 50px;
+}
+
+/*Butter Pecan*/
+.scoop5 {
+background-color: beige;
+background-image: url('../img/dough.png');
+background-repeat: repeat;
+background-size: 50px;
+}
+
+/*Chocolate Chip*/
+.scoop6 {
+background-color: saddlebrown;
+background-image: url('../img/choco_chips.png');
+background-repeat: repeat;
+background-size: 50px;
+}
+
+/*Green Tea*/
+.scoop7 {
+background-color: palegreen;
+}
+
+/*Cookies and Dough*/
+.scoop8 {
+background-color: #3f2a14;
+background-image: url('../img/dough.png');
+background-repeat: repeat;
+background-size: 50px;
+}
+
+/*Mango*/
+.scoop9 {
+background-color: #FF8243;
+}
+
+/*Peach*/
+.scoop10 {
+background-color: #FFDAB9;
+}

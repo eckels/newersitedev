@@ -1,0 +1,186 @@
+/* Main styles */
+@import 'components/main';
+@import 'components/nav';
+@import 'components/footer';
+
+@import 'components/content-body';
+
+.work-header-wrapper {
+    margin-bottom: 24px;
+    .work-header {
+        width: 100%;
+        height: 250px;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 650px) {
+    .work-header-wrapper {
+        margin-bottom: 18px;
+        .work-header {
+            height: 180px;
+        }
+    }
+}
+
+.work-body-wrapper {
+    .work-body {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.work-header-text-wrapper {
+    .work-header-text {
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 48px;
+            img {
+                height: 56px;
+                width: auto;
+                border-radius: 3px;
+                margin: 0;
+                margin-right: 16px;
+            }
+            h1 {
+                margin: 0;
+                font-size: 2.35em;
+            }
+        }
+        .sub-title {
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            .left {
+                width: 35%;
+                margin-right: 5%;
+                h3 {
+                    margin: 0;
+                    font-size: 1.1em;
+                    margin-bottom: 6px;
+                }
+                .scope {
+                    color: $dark-gray;
+                    margin-bottom: 16px;
+                }
+            }
+            .right-wrapper {
+                width: 60%;
+                margin: 0;
+            }
+            .right {
+                display: flex;
+                align-items: stretch;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                width: 100%;
+                .right-item {
+                    width: 45%;
+                    margin: 0 2.5% 6.5% 2.5%;
+                    h3 {
+                        margin: 0;
+                        font-size: 1.1em;
+                        margin-bottom: 6px;
+                    }
+                    p {
+                        color: $dark-gray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .work-header-text-wrapper {
+        .work-header-text {
+            .title {
+                margin-bottom: 32px;
+                img {
+                    height: 45px;
+                    border-radius: 3px;
+                    margin-right: 12px;
+                }
+                h1 {
+                    font-size: 1.95em;
+                }
+            }
+            .sub-title {
+                display: block;
+                .left {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 32px;
+                }
+                .right-wrapper {
+                    width: 100%;
+                }
+                .right {
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    .right-item {
+                        width: 45%;
+                        margin: 0 5% 5% 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .work-header-text-wrapper {
+        .work-header-text {
+            .title {
+                img {
+                    height: 40px;
+                    border-radius: 2px;
+                    margin-right: 10px;
+                }
+                h1 {
+                    font-size: 1.8em;
+                }
+            }
+            .sub-title {
+                .right {
+                    .right-item {
+                        width: 47.5%;
+                        margin: 0 2.5% 5% 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 345px) {
+    .work-header-text-wrapper {
+        .work-header-text {
+            .title {
+                img {
+                    height: 36px;
+                }
+                h1 {
+                    font-size: 1.65em;
+                }
+            }
+            .sub-title {
+                .right {
+                    .right-item {
+                        width: 100%;
+                        margin: 0 0 18px 0;
+                    }
+                }
+            }
+        }
+    }
+}

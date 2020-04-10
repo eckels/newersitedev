@@ -176,10 +176,10 @@ nav .nav-wrapper ul {
   margin-left: auto;
 }
 nav .nav-wrapper ul a {
-  color: #2a2a2a;
+  color: #2a2a2a !important;
 }
 nav .nav-wrapper ul a:hover {
-  color: #2a64f8;
+  color: #2a64f8 !important;
 }
 nav .nav-wrapper ul li {
   font-size: 0.9em;

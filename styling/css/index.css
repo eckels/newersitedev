@@ -541,33 +541,6 @@ footer .footer-inner .right img:hover {
   font-size: 0.9em;
 }
 
-@media (min-width: 901px) {
-  .work-item-sleeve .work-item-wrapper:first-child {
-    margin-left: 0;
-  }
-
-  .work-item-sleeve .work-item-wrapper:last-child {
-    margin-right: 0;
-  }
-}
-@media (min-width: 901px) {
-  .post-item-sleeve .post-item-wrapper:first-child {
-    margin-left: 0;
-  }
-
-  .post-item-sleeve .post-item-wrapper:last-child {
-    margin-right: 0;
-  }
-}
-@media (min-width: 1201px) {
-  .nonprofit-item-sleeve .nonprofit-item-wrapper:first-child {
-    margin-left: 0;
-  }
-
-  .nonprofit-item-sleeve .nonprofit-item-wrapper:last-child {
-    margin-right: 0;
-  }
-}
 @media (max-width: 700px) {
   .landing-header-wrapper {
     margin-bottom: 64px;

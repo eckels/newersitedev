@@ -226,20 +226,20 @@ footer .footer-inner .right img:hover {
 }
 .body-content h3 {
   color: #2a2a2a;
-  margin: 30px 0 18px 0;
-  font-size: 1.75em;
+  margin: 32px 0 8px 0;
+  font-size: 1.6em;
 }
 .body-content h5 {
   color: #2a2a2a;
-  margin: 24px 0 15px 0;
-  font-size: 1.5em;
+  margin: 28px 0 6px 0;
+  font-size: 1.35em;
 }
 .body-content p, .body-content b, .body-content i, .body-content u, .body-content strike, .body-content a, .body-content li, .body-content blockquote {
   font-size: 1.05em;
   line-height: 170%;
 }
 .body-content p {
-  margin: 12px 0 24px 0;
+  margin: 8px 0 32px 0;
 }
 .body-content a {
   border-bottom: solid #2a64f8 1px;
@@ -285,7 +285,7 @@ footer .footer-inner .right img:hover {
 
 @media (max-width: 650px) {
   .body-content h3 {
-    font-size: 1.6em;
+    font-size: 1.45em;
   }
   .body-content h5 {
     font-size: 1.25em;

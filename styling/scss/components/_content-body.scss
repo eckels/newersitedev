@@ -1,12 +1,12 @@
 .body-content {
     h3 {
         color: $black;
-        margin: 32px 0 8px 0;
+        margin: 42px 0 8px 0;
         font-size: 1.6em;
     }
     h5 {
         color: $black;
-        margin: 28px 0 6px 0;
+        margin: 36px 0 6px 0;
         font-size: 1.35em;
     }
     p, b, i, u, strike, a, li, blockquote {
@@ -14,7 +14,8 @@
         line-height: 170%;
     }
     p {
-        margin: 8px 0 32px 0;
+        opacity: 0.84;
+        margin: 8px 0 24px 0;
     }
     a {
         border-bottom: solid $accent-color 1px;
@@ -25,12 +26,16 @@
     ul, ol {
         line-height: 170%;
     }
+    li {
+        opacity: 0.84;
+    }
     blockquote {
         border-left: solid rgba($color: $accent-color, $alpha: 0.75) 2px;
         padding-left: 8px;
         margin-left: 18px;
-        margin-top: 16px;
-        margin-bottom: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        opacity: 0.84;
     }
     .image-wrap {
         text-align: center;
@@ -53,6 +58,7 @@
         font-size: $font-base;
         text-align: center;
         margin-top: -8px;
+        opacity: 1;
     }
     div.center {
         text-align: center;

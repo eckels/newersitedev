@@ -226,12 +226,12 @@ footer .footer-inner .right img:hover {
 }
 .body-content h3 {
   color: #2a2a2a;
-  margin: 32px 0 8px 0;
+  margin: 42px 0 8px 0;
   font-size: 1.6em;
 }
 .body-content h5 {
   color: #2a2a2a;
-  margin: 28px 0 6px 0;
+  margin: 36px 0 6px 0;
   font-size: 1.35em;
 }
 .body-content p, .body-content b, .body-content i, .body-content u, .body-content strike, .body-content a, .body-content li, .body-content blockquote {
@@ -239,7 +239,8 @@ footer .footer-inner .right img:hover {
   line-height: 170%;
 }
 .body-content p {
-  margin: 8px 0 32px 0;
+  opacity: 0.84;
+  margin: 8px 0 24px 0;
 }
 .body-content a {
   border-bottom: solid #2a64f8 1px;
@@ -250,12 +251,16 @@ footer .footer-inner .right img:hover {
 .body-content ul, .body-content ol {
   line-height: 170%;
 }
+.body-content li {
+  opacity: 0.84;
+}
 .body-content blockquote {
   border-left: solid rgba(42, 100, 248, 0.75) 2px;
   padding-left: 8px;
   margin-left: 18px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  opacity: 0.84;
 }
 .body-content .image-wrap {
   text-align: center;
@@ -278,6 +283,7 @@ footer .footer-inner .right img:hover {
   font-size: 0.95em;
   text-align: center;
   margin-top: -8px;
+  opacity: 1;
 }
 .body-content div.center {
   text-align: center;

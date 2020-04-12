@@ -234,13 +234,11 @@ footer .footer-inner .right img:hover {
   margin: 36px 0 6px 0;
   font-size: 1.35em;
 }
-.body-content p, .body-content b, .body-content i, .body-content u, .body-content strike, .body-content a, .body-content li, .body-content blockquote {
-  font-size: 1.05em;
-  line-height: 170%;
-}
 .body-content p {
   opacity: 0.84;
+  font-size: 1.05em;
   margin: 8px 0 24px 0;
+  line-height: 170%;
 }
 .body-content a {
   border-bottom: solid #2a64f8 1px;
@@ -253,6 +251,8 @@ footer .footer-inner .right img:hover {
 }
 .body-content li {
   opacity: 0.84;
+  line-height: 170%;
+  font-size: 1.05em;
 }
 .body-content blockquote {
   border-left: solid rgba(42, 100, 248, 0.75) 2px;
@@ -261,6 +261,8 @@ footer .footer-inner .right img:hover {
   margin-top: 20px;
   margin-bottom: 20px;
   opacity: 0.84;
+  font-size: 1.05em;
+  line-height: 170%;
 }
 .body-content .image-wrap {
   text-align: center;

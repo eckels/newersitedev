@@ -9,13 +9,11 @@
         margin: 36px 0 6px 0;
         font-size: 1.35em;
     }
-    p, b, i, u, strike, a, li, blockquote {
-        font-size: 1.05em;
-        line-height: 170%;
-    }
     p {
         opacity: 0.84;
+        font-size: 1.05em;
         margin: 8px 0 24px 0;
+        line-height: 170%;
     }
     a {
         border-bottom: solid $accent-color 1px;
@@ -28,6 +26,8 @@
     }
     li {
         opacity: 0.84;
+        line-height: 170%;
+        font-size: 1.05em;
     }
     blockquote {
         border-left: solid rgba($color: $accent-color, $alpha: 0.75) 2px;
@@ -36,6 +36,8 @@
         margin-top: 20px;
         margin-bottom: 20px;
         opacity: 0.84;
+        font-size: 1.05em;
+        line-height: 170%;
     }
     .image-wrap {
         text-align: center;

@@ -329,6 +329,10 @@ footer .footer-inner .right img:hover {
   width: 100%;
 }
 
+.center {
+  text-align: center;
+}
+
 @media (max-width: 650px) {
   .work-body-wrapper {
     padding: 0 16px;

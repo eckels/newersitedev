@@ -36,6 +36,10 @@
     }
 }
 
+.center {
+    text-align: center;
+}
+
 @media (max-width: 650px) {
     .work-body-wrapper {
         padding: 0 $small-padding;

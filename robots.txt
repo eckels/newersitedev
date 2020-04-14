@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /posts/post-item.html
+Disallow: /work/work-item.html
+Disallow: /resume.pdf
+
+Sitemap: https://www.evaneckels.com/sitemap.xml

@@ -20,6 +20,9 @@ nav {
             display: flex;
             margin-left: auto;
             a {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
                 color: $black !important;
                 &:hover {
                     color: $accent-color !important;
@@ -38,4 +41,121 @@ nav {
     nav {
         padding: 16px 0 12px 0;
     }
+    .switch {
+        margin-right: -6px;
+    }
+}
+
+@media (max-width: 350px) {
+    nav {
+        .nav-wrapper {
+            ul {
+                li {
+                    margin-left: 18px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+$switch-outline-off: #cccccc;
+$switch-outline-on: rgba(255, 255, 255, 0.6);
+$switch-inside-off: #ffffff;
+$switch-inside-on: #181818;
+$switch-color-on: #cccccc;
+$switch-color-off: rgba(255, 255, 255, 0.9);
+
+/* Switch styling */
+.switch {
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 24px;
+	padding: 1px;
+	background-color: $switch-outline-off;
+	border-radius: 24px;
+	cursor: pointer;
+	box-sizing:content-box;
+}
+.switch-input:checked ~ .switch {
+    background-color: $switch-outline-on;
+}
+.switch-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing:content-box;
+}
+.switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 10px;
+	text-transform: uppercase;
+	background: $switch-inside-off;
+	border-radius: inherit;
+	box-sizing: content-box;
+}
+.switch-label:before, .switch-label:after {
+    height: 15px;
+    width: 15px;
+	position: absolute;
+	top: 50%;
+	margin-top: -7.5px;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+	box-sizing: content-box;
+}
+.switch-label:before {
+    background: url(../../img/sun-light.svg) no-repeat center center;
+    background-size: contain;
+    content: "";
+    right: 5px;
+    opacity: 0.8;
+}
+.switch-label:after {
+    background: url(../../img/moon-dark.svg) no-repeat center center;
+    background-size: contain;
+	content: "";
+	left: 6px;
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+	background: $switch-inside-on;
+}
+.switch-input:checked ~ .switch-label:before {
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+	opacity: 0.9;
+}
+.switch-handle {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	background-color: $switch-color-on;
+	border-radius: 100%;
+}
+.switch-input:checked ~ .switch-handle {
+    background-color: $switch-color-off;
+}
+.switch-input:checked ~ .switch-handle {
+	left: 29px;
+}
+ 
+/* Transition
+========================== */
+.switch-label, .switch-handle {
+	transition: All 0.3s ease;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
 }

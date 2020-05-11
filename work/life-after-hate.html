@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../styling/css/project.css">
+        <link rel="stylesheet" href="../styling/css/project.css" id="light-stylesheet">
+        <link rel="alternate stylesheet" href="../styling/css/project-dark.css" id="dark-stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
         <link rel="apple-touch-icon" sizes="57x57" href="../img/icon/apple-icon-57x57.png">
@@ -43,6 +44,7 @@
 
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../js/dark-mode.js"></script>
         <script src="../js/base.js"></script>
 
         <style>
@@ -92,6 +94,11 @@
                     </div></a>
                     <ul>
                         <!--<a href="../about.html"><li>About</li></a>-->
+                        <label class="switch">
+                            <input class="switch-input" type="checkbox" id="darkmode-slider" onchange="changeTheme()" />
+                            <span class="switch-label" data-on="On" data-off="Off"></span>
+                            <span class="switch-handle"></span>
+                        </label>
                         <a href="../work"><li>Work</li></a>
                         <a href="../posts"><li>Posts</li></a>
                     </ul>
@@ -155,7 +162,8 @@
                 <h5>How LAH fits Hack4Impact's goals</h5>
                 <p>When we heard about LAH's problems, we saw an immediate opportunity to help. Our organization aims to help nonprofits broaden their impact, and we do that by creating the necessary tools so that they can better focus on their core mission. When building a product, we put an emphasis on scalability, user-friendliness, and intentionality. We put special thought into building a product that can scale with the organization and support more staff along with the organization's future goals. Through rigorous user research and testing, we optimize the UX of our applications by building around the user. To make the product as impactful as possible, we personalized it to the use cases of the nonprofit. We consider the nonprofit the priority and end user, meaning that our products are made with their goals, staff, and audience in mind.</p>
                 <div class="center">
-                    <img src="img/h4i-logo.png" alt="Hack4Impact logo" style="width: 400px;" />
+                    <img src="img/h4i-logo.png" class="light-mode" alt="Hack4Impact logo" style="width: 400px;" />
+                    <img src="img/h4i-logo-dark.png" class="dark-mode" alt="Hack4Impact logo" style="width: 400px;" />
                 </div>
 
                 <h5>Overview of solution</h5>
@@ -188,7 +196,8 @@
         <div class="github-wrap">
             <div class="github">
                 <a href="https://github.com/hack4impact-uiuc/life-after-hate" target="_blank">
-                    <img src="../img/github.svg" alt="Github logo" />
+                    <img src="../img/github.svg" class="light-mode" alt="Github logo" />
+                    <img src="../img/github-dark.svg" class="dark-mode" alt="Github logo" />
                     <p>Check this project out on Github</p>
                 </a>
             </div>
@@ -201,10 +210,22 @@
                         <p>&copy; <span id="date-target">2020</span> Evan Eckels</p>
                     </div>
                     <div class="right">
-                        <a href="mailto:eveckels@gmail.com"><img src="../img/email.svg" alt="Email me" /></a>
-                        <a href="https://www.linkedin.com/in/evaneckels/" target="_blank"><img src="../img/linkedin.svg" alt="LinkedIn logo" /></a>
-                        <a href="https://github.com/eckels" target="_blank"><img src="../img/github.svg" alt="Github logo" /></a>
-                        <a href="https://www.instagram.com/evaneckels/" target="_blank"><img src="../img/instagram.svg" alt="Instagram logo" /></a>
+                        <a href="mailto:eveckels@gmail.com">
+                            <img src="../img/email.svg" class="light-mode" alt="Email me" />
+                            <img src="../img/email-dark.svg" class="dark-mode" alt="Email me" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/evaneckels/" target="_blank">
+                            <img src="../img/linkedin.svg" class="light-mode" alt="LinkedIn logo" />
+                            <img src="../img/linkedin-dark.svg" class="dark-mode" alt="LinkedIn logo" />
+                        </a>
+                        <a href="https://github.com/eckels" target="_blank">
+                            <img src="../img/github.svg" class="light-mode" alt="Github logo" />
+                            <img src="../img/github-dark.svg" class="dark-mode" alt="Github logo" />
+                        </a>
+                        <a href="https://www.instagram.com/evaneckels/" target="_blank">
+                            <img src="../img/instagram.svg" class="light-mode" alt="Instagram logo" />
+                            <img src="../img/instagram-dark.svg" class="dark-mode" alt="Instagram logo" />
+                        </a>
                     </div>
                 </div>
             </footer>

@@ -5,12 +5,12 @@
 
 @import 'components/work_item';
 @import 'components/post_item';
-@import 'components/nonprofit_item';
 
 .landing-header-wrapper {
     margin-bottom: 64px;
     .landing-header {
         background-color: $white;
+        transition: background-color 0.25s, color 0.15s;
         border-radius: 3px;
         box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
         .inside-div {
@@ -21,12 +21,12 @@
                 font-size: 2em;
                 line-height: 130%;
                 span {
-                    background-color: #e8eefe;
+                    background-color: $span-color;
                     padding: 0px 4px;
                     border-radius: 2px;
-                    transition: 0.2s;
+                    transition: background-color 0.2s;
                     &:hover {
-                        background-color: #c2d3fd;
+                        background-color: $span-color-highlight;
                     }
                 }
             }

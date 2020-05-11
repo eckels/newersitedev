@@ -1,0 +1,100 @@
+/* Main styles */
+@import 'components/main-dark';
+@import 'components/nav';
+@import 'components/footer';
+
+@import 'components/work_item';
+@import 'components/post_item';
+
+.landing-header-wrapper {
+    margin-bottom: 64px;
+    .landing-header {
+        background-color: $white;
+        transition: background-color 0.25s, color 0.15s;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
+        .inside-div {
+            padding: 36px 24px;
+            h2 {
+                margin: 0;
+                font-weight: 700;
+                font-size: 2em;
+                line-height: 130%;
+                span {
+                    background-color: $span-color;
+                    padding: 0px 4px;
+                    border-radius: 2px;
+                    transition: background-color 0.2s;
+                    &:hover {
+                        background-color: $span-color-highlight;
+                    }
+                }
+            }
+            .bottom {
+                margin-top: 48px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+                .bottom-item {
+                    width: 50%;
+                    h6 {
+                        margin: 0;
+                        margin-bottom: 5px;
+                        font-size: $font-base;
+                        font-weight: 500;
+                    }
+                    p {
+                        font-size: $font-small;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .landing-header-wrapper {
+        margin-bottom: 64px;
+        .landing-header {
+            .inside-div {
+                padding: 32px 18px;
+                padding-bottom: 14px;
+                h2 {
+                    font-size: 2em;
+                }
+                .bottom {
+                    margin-top: 36px;
+                    display: block;
+                    width: 100%;
+                    .bottom-item {
+                        width: 100%;
+                        margin-bottom: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .landing-header-wrapper {
+        margin-bottom: 42px;
+        .landing-header {
+            .inside-div {
+                padding: 24px 12px;
+                padding-bottom: 6px;
+                h2 {
+                    font-size: 1.8em;
+                }
+                .bottom {
+                    margin-top: 32px;
+                    .bottom-item {
+                        width: 100%;
+                        margin-bottom: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

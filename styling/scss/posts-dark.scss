@@ -1,0 +1,12 @@
+/* Main styles */
+@import 'components/main-dark';
+@import 'components/nav';
+@import 'components/footer';
+
+@import 'components/post_item';
+
+@media (max-width: 650px) {
+    .section-wrapper {
+        margin-bottom: 42px !important;
+    }
+}

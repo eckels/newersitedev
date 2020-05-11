@@ -10,3 +10,9 @@
         margin-bottom: 42px !important;
     }
 }
+
+#header-gradient {
+    box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.01);
+    background: $white;
+    background: linear-gradient(90deg, $white 0%, $background 100%);
+}

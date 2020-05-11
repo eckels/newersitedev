@@ -452,5 +452,10 @@ footer .footer-inner .right img:hover {
     margin-bottom: 42px !important;
   }
 }
+#header-gradient {
+  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.01);
+  background: #FFFFFF;
+  background: linear-gradient(90deg, #FFFFFF 0%, #fafafa 100%);
+}
 
 /*# sourceMappingURL=posts.css.map */

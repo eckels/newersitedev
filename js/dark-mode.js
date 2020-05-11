@@ -12,7 +12,7 @@ if (lastUpdated === null || currSiteMode === null) {
 }
 
 
-if (hourDiff >= 12) {
+if (hourDiff >= 6) {
     if (currHour >= 20 || currHour < 6) {
         setDark(currTime, false);
     }

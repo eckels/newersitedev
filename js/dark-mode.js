@@ -11,7 +11,6 @@ if (lastUpdated === null || currSiteMode === null) {
     var hourDiff = Math.abs(currTime - lastUpdated) / 36e5;
 }
 
-
 if (hourDiff >= 6) {
     if (currHour >= 20 || currHour < 6) {
         setDark(currTime, false);
@@ -27,8 +26,6 @@ if (hourDiff >= 6) {
         setLight(currTime, false);
     }
 }
-
-
 
 function enableStylesheet(stylesheet) {
     stylesheet.rel = 'stylesheet';

@@ -77,3 +77,19 @@
         }
     }
 }
+
+.mobile-image {
+    display: none;
+}
+.desktop-image {
+    display: block;
+}
+
+@media (max-width: 650px) {
+    .mobile-image {
+        display: block;
+    }
+    .desktop-image {
+        display: none;
+    }
+}

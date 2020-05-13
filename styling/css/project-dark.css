@@ -420,6 +420,23 @@ footer .footer-inner .right img:hover {
     font-size: 1.25em;
   }
 }
+.mobile-image {
+  display: none;
+}
+
+.desktop-image {
+  display: block;
+}
+
+@media (max-width: 650px) {
+  .mobile-image {
+    display: block;
+  }
+
+  .desktop-image {
+    display: none;
+  }
+}
 .work-header-wrapper {
   margin-bottom: 24px;
 }

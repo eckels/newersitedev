@@ -13,6 +13,7 @@ html, body {
     font-family: 'Roboto', sans-serif;
     background-color: $background;
     color: $black;
+    transition: background-color 0.25s, color 0.15s;
 }
 
 .body-wrap {

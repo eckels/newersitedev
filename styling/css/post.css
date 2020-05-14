@@ -7,6 +7,7 @@ html, body {
   font-family: "Roboto", sans-serif;
   background-color: #fafafa;
   color: #2a2a2a;
+  transition: background-color 0.25s, color 0.15s;
 }
 
 .body-wrap {

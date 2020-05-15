@@ -189,6 +189,56 @@
                 <p>One constraint that was immediately obvious to us as an organization was the handoff from one team to another between the Fall and Spring semesters. We needed to ensure the second team could easily understand and work off of the existing codebase. We would need to pay special attention to naming conventions, code formatting, and standardizing the site structure.</p>
                 <p>The way the project would pan out is that the Fall team would focus on the map and directory view while the Spring team would focus on account management and tying up loose ends. We focused on addressing the main map and directory views first so that we had time to process user testing and feedback to improve our principal features.</p>
                 <p>Another constraint we came across concerned the security of our application. The data that we are displaying on our application has personally identifying information for the individuals and businesses volunteering their services. If a hate group were to get their hands on this information, it could be catastrophic for those businesses and individuals. To ensure the security of this information, we opted to use Google OAuth to handle sign-ins. Google is a widely used and highly secure service, so it was an optimal choice to ensure security and inclusivity for those who will access the platform.</p>
+
+                <h3>Product Research</h3>
+                <p>Before we start creating the designs for the application, we need to fully understand the audience of our application and some existing alternatives.</p>
+                
+                <h5>Alternatives</h5>
+                <p>Starting with some alternatives to our application, the most obvious one is Excel/Google sheets. Both products allow for easy filtering, storage, and displaying of resource information. These products are similar to our directory view, but our map view remains unique. When creating this product, we will keep in mind the similarities to Excel and Google sheets. We can use this to our advantage by asking for pain points that LAH currently has with using Excel to store their resources.</p>
+                <p>For the map view, there are not really any intuitive consumer projects that could store resource information and display dynamically on a map. This is where we see a lot of value and use coming from our product. As a result, we will invest more time developing the map view.</p>
+
+                <h5>User research</h5>
+                <p>The first thing we need to do is define the user. In terms of our immediate users, we have the 2 staff members of LAH. We also need to keep the potential volunteers in mind. Our product has a well defined use case, where all our users will be using this platform to search for resources and occasionally add/edit them.</p>
+                <p>We couldn't rely on 1-2 users for all user feedback to build this application. We had to extrapolate some of the feedback to see if our platform would work for a generalized audience with little to no friction. To do this, we had Hack4Impact members test the function of our application prototypes and extensively researched the audiences and design decisions of similar products like Yelp, Google Maps, WebMD, and Redfin.</p>
+                <p>By doing some research on our users, we are able to come up with a list of user needs and other characteristics that will influence our design. By asking questions to LAH staff and volunteers, we were able to define the following user needs:</p>
+                <ul>
+                    <li>Volunteers and staff need to be able to input different locations to base the search off of</li>
+                    <li>Users need to be able to edit the search radius to tune results for densely vs sparsely populated resource areas</li>
+                    <li>Ability to edit or add resources from any page</li>
+                    <li>LAH staff must have the ability to manage user access to the platform</li>
+                    <li>Ability to copy paste information easily</li>
+                    <li>Users need to be able to gauge distance of resource from the former</li>
+                    <li>The resources need to be easy to skim</li>
+                    <li>Users need to be able to search by tag</li>
+                    <li>This is a power tool, so actions should be quick and might not require the most guidance</li>
+                    <li>The interface should be ideal for desktop</li>
+                </ul>
+
+                <h5>User flow</h5>
+                <p>After identifying the user needs, we can go straight into building out the user flow diagram. This will help us lay out the architecture of our application in terms of actions + screens by building around the use cases of the app.</p>
+                <p>Some of the use cases we can identify are:</p>
+                <ul>
+                    <li>general search (looking for resources in a given radius and/or certain category)</li>
+                    <li>high-intent search (looking for a specific resource by looking up owners name)</li>
+                    <li>Adding a resource</li>
+                    <li>Editing/deleting a resource</li>
+                    <li>Giving a user permission to application</li>
+                    <li>Removing / changing user privileges</li>
+                </ul>
+                <p>We can base our user flow diagram off of these 6 actions. This diagram combines all 6 actions into one graphic:</p>
+            </div>
+        </div></div>
+
+        <div class="center">
+            <img src="img/lah-flow.png" alt="LAH user flow" style="max-width: 1300px;" class="wide" />
+        </div>
+
+        <div class="work-body-wrapper"><div class="work-body">
+            <div class="body-content">
+                <p>By building out a user flow, we can build out the skeleton of our application and easily see what tasks take too long to complete or are not the most intuitive. This is a good foundation for building the UX of the application, and is extremely simple to draw out and visualize. We often cannot optimize every action to be quick and intuitive. In our case, we prioritized the speed and ease of searching over the edit resource function.</p>
+                
+                <h3>Prototyping</h3>
+                <p>After perfecting the user flow diagram, I got to work on the wireframes for the app. When creating these wireframes, I worked off of our user research and based the layout off of similar products (Yelp, Google Maps, WebMD, and Redfin).</p>
             </div>
         </div></div>
 

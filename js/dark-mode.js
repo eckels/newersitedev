@@ -27,14 +27,6 @@ if (hourDiff >= 6) {
     }
 }
 
-function enableStylesheet(stylesheet) {
-    stylesheet.rel = 'stylesheet';
-}
-
-function disableStylesheet(stylesheet) {
-    stylesheet.rel = 'alternate stylesheet';
-}
-
 function changeTheme() {
     var curr_time = new Date();
     var darkmode = document.getElementById('darkmode-slider').checked;
@@ -46,9 +38,9 @@ function changeTheme() {
 }
 
 function setLight(time, meta) {
-    disableStylesheet(document.getElementById('dark-stylesheet'));
-    enableStylesheet(document.getElementById('light-stylesheet'));
     localStorage.setItem('evane_site_mode', 'light');
+    document.documentElement.removeAttribute('data-theme');
+    setLightItems();
     if (meta) {
         document.getElementById('darkmode-slider').checked = false;
         localStorage.setItem('evane_site_last_updated', time);
@@ -56,11 +48,49 @@ function setLight(time, meta) {
 }
 
 function setDark(time, meta) {
-    disableStylesheet(document.getElementById('light-stylesheet'));
-    enableStylesheet(document.getElementById('dark-stylesheet'));
     localStorage.setItem('evane_site_mode', 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+    setDarkItems();
     if (meta) {
         document.getElementById('darkmode-slider').checked = true;
         localStorage.setItem('evane_site_last_updated', time);
     }
+}
+
+function showDarkModeItems() {
+    var items = document.getElementsByClassName('dark-mode');
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.display = "";
+    }
+}
+
+function hideDarkModeItems() {
+    var items = document.getElementsByClassName('dark-mode');
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+}
+
+function showLightModeItems() {
+    var items = document.getElementsByClassName('light-mode');
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.display = "";
+    }
+}
+
+function hideLightModeItems() {
+    var items = document.getElementsByClassName('light-mode');
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+}
+
+function setDarkItems() {
+    hideLightModeItems();
+    showDarkModeItems();
+}
+
+function setLightItems() {
+    hideDarkModeItems();
+    showLightModeItems();
 }

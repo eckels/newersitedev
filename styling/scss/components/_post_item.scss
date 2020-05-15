@@ -6,7 +6,7 @@
 }
 
 .post-item-wrapper {
-    background-color: $white;
+    background-color: var(--white-theme);
     box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     flex: 1 1 30%;
@@ -33,19 +33,19 @@
             }
             h3 {
                 font-size: 1.25em;
-                color: $black;
+                color: var(--black-theme);
                 margin-bottom: 5px;
                 margin-top: 4px;
                 transition: color 0.2s;
             }
             .category {
                 font-size: $font-smaller;
-                color: $dark-gray;
+                color: var(--dark-gray-theme);
             }
             .date {
                 margin-top: 30px;
                 font-size: $font-smaller;
-                color: $dark-gray;
+                color: var(--dark-gray-theme);
             }
         }
     }
@@ -61,7 +61,7 @@
         }
         .post-body {
             h3 {
-                color: $accent-color;
+                color: var(--accent-color-theme);
             }
         }
         top: -3px;

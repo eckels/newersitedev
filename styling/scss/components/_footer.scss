@@ -7,7 +7,7 @@ footer {
         align-items: center;
         .left {
             p {
-                color: $dark-gray;
+                color: var(--dark-gray-theme);
                 font-size: $font-small;
             }
         }

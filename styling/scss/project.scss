@@ -79,7 +79,7 @@
                     margin-bottom: 6px;
                 }
                 .scope {
-                    color: $dark-gray;
+                    color: var(--dark-gray-theme);
                     margin-bottom: 16px;
                 }
             }
@@ -102,9 +102,9 @@
                         margin-bottom: 6px;
                     }
                     p {
-                        color: $dark-gray;
+                        color: var(--dark-gray-theme);
                         span {
-                            color: $black;
+                            color: var(--black-theme);
                         }
                     }
                 }
@@ -246,7 +246,7 @@ img.shadow {
             transition: opacity 0.2s;
         }
         p {
-            color: $dark-gray;
+            color: var(--dark-gray-theme);
             transition: color 0.2s;
         }
         &:hover {
@@ -254,7 +254,7 @@ img.shadow {
                 opacity: 0.9;
             }
             p {
-                color: $black;
+                color: var(--black-theme);
             }
         }
     }

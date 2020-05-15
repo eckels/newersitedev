@@ -26,7 +26,7 @@
         .post-body-header {
             margin-bottom: 48px;
             h1 {
-                color: $black;
+                color: var(--black-theme);
                 margin: 0;
                 margin-bottom: 12px;
                 font-size: 2.25em;
@@ -34,7 +34,7 @@
             .date, .category {
                 margin: 0;
                 font-size: $font-base;
-                color: $dark-gray;
+                color: var(--dark-gray-theme);
             }
             .category {
                 margin-bottom: 6px;

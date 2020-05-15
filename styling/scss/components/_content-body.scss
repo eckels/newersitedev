@@ -1,11 +1,11 @@
 .body-content {
     h3 {
-        color: $black;
+        color: var(--black-theme);
         margin: 42px 0 8px 0;
         font-size: 1.6em;
     }
     h5 {
-        color: $black;
+        color: var(--black-theme);
         margin: 36px 0 6px 0;
         font-size: 1.35em;
     }
@@ -16,9 +16,9 @@
         line-height: 170%;
     }
     a {
-        border-bottom: solid $accent-color 1px;
+        border-bottom: solid var(--accent-color-theme) 1px;
         &:hover {
-            border-bottom: solid $accent-color-highlight 1px;
+            border-bottom: solid var(--accent-color-highlight-theme) 1px;
         }
     }
     ul, ol {
@@ -30,7 +30,7 @@
         font-size: 1.05em;
     }
     blockquote {
-        border-left: solid rgba($color: $accent-color, $alpha: 0.75) 2px;
+        border-left: solid rgba($color: var(--accent-color-theme), $alpha: 0.75) 2px;
         padding-left: 8px;
         margin-left: 18px;
         margin-top: 20px;
@@ -56,7 +56,7 @@
         margin-bottom: 16px;
     }
     .caption {
-        color: $dark-gray;
+        color: var(--dark-gray-theme);
         font-size: $font-base;
         text-align: center;
         margin-top: -8px;

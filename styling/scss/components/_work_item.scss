@@ -7,7 +7,7 @@
 
 .work-item-wrapper {
     flex: 1 1 30%;
-    background-color: $white;
+    background-color: var(--white-theme);
     box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     margin: 9px 9px;
@@ -28,7 +28,7 @@
                 border-radius: 2px;
             }
             h4 {
-                color: $black;
+                color: var(--black-theme);
                 font-size: 1.25em;
                 margin: 0;
                 font-weight: 500;
@@ -37,14 +37,14 @@
         .middle {
             font-weight: 400;
             .work-desc {
-                color: $dark-gray;
+                color: var(--dark-gray-theme);
                 font-size: $font-base;
                 margin-bottom: 30px;
                 height: auto;
             }
             .date {
                 font-size: $font-smaller;
-                color: $dark-gray;
+                color: var(--dark-gray-theme);
             }
         }
     }

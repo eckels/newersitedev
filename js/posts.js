@@ -1,59 +1,37 @@
 var postWidth = 900;
 
-$(document).ready(function() {
-    postCounter = 0;
-    if (postWidth < $(window).width()) {
-        $(".post-item-wrapper").each(function() {
-            postCounter++;
-            if (postCounter % 3 == 1) {
-                $(this).css('margin-left', '0');
-                
-            } else if (postCounter % 3 == 0) {
-                $(this).css('margin-right', '0');
-                
+function setPostFills() {
+    var fills = document.getElementsByClassName('post-fill');
+    while (fills[0]) {
+        fills[0].parentNode.removeChild(fills[0]);
+    }
+    var postCount = 0;
+    var postItem = document.getElementsByClassName('post-item-wrapper');
+    for (var i = 0; i < postItem.length; i++) {
+        postCount++;
+        if (postWidth < window.innerWidth) {
+            if (postCount % 3 == 1) {
+                postItem[i].style.marginLeft = '0px';
+            } else if (postCount % 3 == 0) {
+                postItem[i].style.marginRight = '0px';
             }
-        });
-        if (postCounter % 3 != 0) {
-            if (postCounter % 3 == 1) {
-                $('#post-item-sleeve-target').append('<div class="post-fill"></div>');
-                $('#post-item-sleeve-target').append('<div class="post-fill"></div>');
-            } else if (postCounter % 3 == 2) {
-                $('#post-item-sleeve-target').append('<div class="post-fill"></div>');
+        } else {
+            postItem[i].style.marginLeft = '';
+            postItem[i].style.marginRight = '';
+        }
+        if (postCount % 3 != 0) {
+            let fill = document.createElement('div');
+            fill.setAttribute('class', 'post-fill');
+            if (postCount % 3 == 1) {
+                document.getElementById('post-item-sleeve-target').appendChild(fill);
+                document.getElementById('post-item-sleeve-target').appendChild(fill);
+            } else if (postCount % 3 == 2) {
+                document.getElementById('post-item-sleeve-target').appendChild(fill);
             }
         }
-    } else {
-        $(".post-item-wrapper").each(function() {
-            $(this).css('margin-right', '');
-            $(this).css('margin-left', '');
-        });
     }
-});
+}
 
-$(window).resize(function() {
-    postCounter = 0;
-    if (postWidth < $(window).width()) {
-        $(".post-item-wrapper").each(function() {
-            postCounter++;
-            if (postCounter % 3 == 1) {
-                $(this).css('margin-left', '0');
-                
-            } else if (postCounter % 3 == 0) {
-                $(this).css('margin-right', '0');
-                
-            }
-        });
-        if (postCounter % 3 != 0) {
-            if (postCounter % 3 == 1) {
-                $('#post-item-sleeve-target').append('<div class="post-fill"></div>');
-                $('#post-item-sleeve-target').append('<div class="post-fill"></div>');
-            } else if (postCounter % 3 == 2) {
-                $('#post-item-sleeve-target').append('<div class="post-fill"></div>');
-            }
-        }
-    } else {
-        $(".post-item-wrapper").each(function() {
-            $(this).css('margin-right', '');
-            $(this).css('margin-left', '');
-        });
-    }
-});
+window.addEventListener("resize", setPostFills);
+
+setPostFills();

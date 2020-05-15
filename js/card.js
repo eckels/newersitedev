@@ -1,99 +1,49 @@
-var maxHeightWork = 0;
-var maxHeightPost = 0;
-var maxHeightNonprofit = 0;
-
 var workWidth = 500;
 var postWidth = 500;
-var nonprofitWidth = 350;
 
-$(document).ready(function() {
-    $(".work-desc").each(function() {
-        var temp = $(this).height();
-        if (maxHeightWork < temp) {
-            maxHeightWork = temp;
+function setWorkHeight() {
+    var workItems = document.getElementsByClassName('work-desc');
+    var workMaxHeight = workItems[0].offsetHeight;
+    for (var i = 0; i < workItems.length; i++) {
+        workItems[i].style.height = '';
+        var currHeight = workItems[i].offsetHeight;
+        if (workMaxHeight < currHeight) {
+            workMaxHeight = currHeight;
         }
-    });
-    if ($(window).width() > workWidth) {
-        $('.work-desc').css('height', maxHeightWork);
     }
-    $(".post-target").each(function() {
-        var temp = $(this).height();
-        if (maxHeightPost < temp) {
-            maxHeightPost = temp;
+    for (var i = 0; i < workItems.length; i++) {
+        if (window.innerWidth > workWidth) {
+            workItems[i].style.height = workMaxHeight + 'px';
+        } else {
+            workItems[i].style.height = 'auto';
         }
-    });
-    if ($(window).width() > postWidth) {
-        $('.post-target').css('height', maxHeightPost);
     }
-    $(".nonprofit-target").each(function() {
-        var temp = $(this).height();
-        if (maxHeightNonprofit < temp) {
-            maxHeightNonprofit = temp;
-        }
-    });
-    if ($(window).width() > nonprofitWidth) {
-        $('.nonprofit-target').css('height', maxHeightNonprofit);
-    }
-    $(window).resize(function() {
-        $('.work-desc').css('height', 'auto');
-        $('.post-target').css('height', 'auto');
-        $('.nonprofit-target').css('height', 'auto');
-        $(".work-desc").each(function() {
-            var temp = $(this).height();
-            if (maxHeightWork < temp) {
-                maxHeightWork = temp;
-            }
-        });
-        if ($(window).width() > workWidth) {
-            $('.work-desc').css('height', maxHeightWork);
-        }
-        $(".post-target").each(function() {
-            var temp = $(this).height();
-            if (maxHeightPost < temp) {
-                maxHeightPost = temp;
-            }
-        });
-        if ($(window).width() > postWidth) {
-            $('.post-target').css('height', maxHeightPost);
-        }
-        $(".nonprofit-target").each(function() {
-            var temp = $(this).height();
-            if (maxHeightNonprofit < temp) {
-                maxHeightNonprofit = temp;
-            }
-        });
-        if ($(window).width() > nonprofitWidth) {
-            $('.nonprofit-target').css('height', maxHeightNonprofit);
-        }
-    });
-});
-
-$(".work-desc").each(function() {
-    var temp = $(this).height();
-    if (maxHeightWork < temp) {
-        maxHeightWork = temp;
-    }
-});
-if ($(window).width() > workWidth) {
-    $('.work-desc').css('height', maxHeightWork);
 }
 
-$(".post-target").each(function() {
-    var temp = $(this).height();
-    if (maxHeightPost < temp) {
-        maxHeightPost = temp;
+function setPostHeight() {
+    var postItems = document.getElementsByClassName('post-target');
+    var postMaxHeight = postItems[0].offsetHeight;
+    for (var i = 0; i < postItems.length; i++) {
+        postItems[i].style.height = '';
+        var currHeight = postItems[i].offsetHeight;
+        if (postMaxHeight < currHeight) {
+            postMaxHeight = currHeight;
+        }        
     }
-});
-if ($(window).width() > postWidth) {
-    $('.post-target').css('height', maxHeightPost);
+    for (var i = 0; i < postItems.length; i++) {
+        if (window.innerWidth > postWidth) {
+            postItems[i].style.height = postMaxHeight + 'px';
+        } else {
+            postItems[i].style.height = 'auto';
+        }
+    }
 }
 
-$(".nonprofit-target").each(function() {
-    var temp = $(this).height();
-    if (maxHeightNonprofit < temp) {
-        maxHeightNonprofit = temp;
-    }
-});
-if ($(window).width() > nonprofitWidth) {
-    $('.nonprofit-target').css('height', maxHeightNonprofit);
+function setCardHeights() {
+    setWorkHeight();
+    setPostHeight();
 }
+
+window.addEventListener("resize", setCardHeights);
+
+setCardHeights();

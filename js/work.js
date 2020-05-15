@@ -7,6 +7,7 @@ function setWorkFills() {
     }
     var postCount = 0;
     var postItem = document.getElementsByClassName('work-item-wrapper');
+    if (postItem.length === 0) return;
     for (var i = 0; i < postItem.length; i++) {
         postCount++;
         if (postWidth < window.innerWidth) {

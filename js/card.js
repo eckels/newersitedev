@@ -3,6 +3,7 @@ var postWidth = 500;
 
 function setWorkHeight() {
     var workItems = document.getElementsByClassName('work-desc');
+    if (workItems.length === 0) return;
     var workMaxHeight = workItems[0].offsetHeight;
     for (var i = 0; i < workItems.length; i++) {
         workItems[i].style.height = '';
@@ -22,6 +23,7 @@ function setWorkHeight() {
 
 function setPostHeight() {
     var postItems = document.getElementsByClassName('post-target');
+    if (postItems.length === 0) return;    
     var postMaxHeight = postItems[0].offsetHeight;
     for (var i = 0; i < postItems.length; i++) {
         postItems[i].style.height = '';

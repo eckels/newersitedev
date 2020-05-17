@@ -276,12 +276,12 @@
                 </ul>
                 <p>Each components has a specific weight based on how well the search query matches a resource and how important that aspect of the resource is.</p>
                 <div class="center">
-                    <img src="img/lah-search.png" alt="LAH search from map view" class="shadow" />
+                    <img src="img/lah-search.png" alt="LAH search from map view" />
                 </div>
                 <p><b>High-intent search:</b> Because of the nature of high-intent search, we decided to include all 3 data components in the search. Location, tags, and keywords. This is a highly specific search, so we want to allow users to have a high level of control over their search. The user still has the choice of leaving any field blank, but all options are provided.</p>
                 <p>We used a slightly modified version of the keyword scoring above, with the only difference being that the tag can be explicitly defined. This allows the user to really narrow down search results.</p>
                 <div class="center">
-                    <img src="img/lah-search-wide.png" alt="LAH search from directory view" class="shadow" />
+                    <img src="img/lah-search-wide.png" alt="LAH search from directory view" />
                 </div>
                 <p>We spent a lot of time considering the layout and function of the search bar. We also revised the location input field to be extremely forgiving in which location formats could be accepted. For example, queries as simple as just <b>"Chicago"</b> or as complex as <b>"600 E Grand Ave, Chicago, IL 60611"</b> would both be accepted. With some extra engineering work and some research into basic search algorithms, we were able to optimize the user experience in both search cases.</p>
 
@@ -304,6 +304,12 @@
 
                 <h3>User Testing</h3>
                 <p>Since our project spanned 2 semesters, we were able to invest time in user testing. We had most of the main components built out in the fall semester (map view, directory view) which allowed us to spend spring semester pinpointing usability issues with ample time to revise.</p>
+                <p>We primarily did user testing with the LAH staff and people who did not have a deep understanding of the application. We asked the users to try and complete certain tasks and documented the processes that each user followed to get to the end goal.</p>
+                <p>Through testing, we found that a lot of users were clicking on the 'tags' of a resource. After further research, we found that the tags resembled buttons. They had an outline and used the same bright orange accent color as the buttons and map pins, both clickable objects.</p>
+                <div class="center">
+                    <img src="img/lah-tags.png" alt="Tags from the LAH application" style="width: 50%; max-width: 200px;" />
+                </div>
+                <p>Our initial solution was to revise the design to have no border and use a more neutral color, but we decided that this was a necessary feature to add. The pilot users were trying to filter by tag. They needed it to complete their task and were left frustrated when it did nothing and had to go to plan B. We left a lot of time to work on usability issues, and decided it could be added to the scope without any adverse effect to our current timeline.</p>
             </div>
         </div></div>
 

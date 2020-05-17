@@ -256,6 +256,49 @@
             <div class="body-content">
                 <h3>Key Problems</h3>
                 <p>There were quite a few problems where we really dug deep to solve. I've outlined some of our more impactful design decisions that we made to provide a better experience for the user.</p>
+
+                <h5>Optimizing the search experience</h5>
+                <p><b>Problem </b><br>When searching, we had 3 different types of data that factored into the search ranking: location, tag, and the keywords. Having 3 different inputs would make searching much slower. How do we keep the form user friendly while still collecting all the data we need to make a search?</p>
+                <p><b>Solution </b><br>We had to go back to the differences between high-intent search and general search. We had already decided that high-intent search would be on the directory view page, while the general search would be on the map view page. So we broke down exactly what we needed to make both of the searches.</p>
+                <p><b>General search:</b> We decided that keywords and tags were interchangeable and that location was a staple. This search is more broad, and from our user research, staff would likely be using one or the other. Through following principles of Postel's Law, we decided to make the second input highly versatile by accepting both tag and keyword queries. Postel's Law states that you should be Be liberal in what you accept, and conservative in what you send. We keep the search open ended and keep the results relevant to what search query was given to us.</p>
+                <p>To make this work, we created a weighted search algorithm that weighs the keywords that are found within resources. Based on research and user needs, we created a search ranking system with the following components contributing to the rankings:</p>
+                <ul>
+                    <li>Name of business</li>
+                    <li>Point of contact</li>
+                    <li>Tags</li>
+                    <li>Matches in description</li>
+                    <li>Matches in notes</li>
+                </ul>
+                <p>Each components has a specific weight based on how well the search query matches a resource and how important that aspect of the resource is.</p>
+                <div class="center">
+                    <img src="img/lah-search.png" alt="LAH search from map view" class="shadow" />
+                </div>
+                <p><b>High-intent search:</b> Because of the nature of high-intent search, we decided to include all 3 data components in the search. Location, tags, and keywords. This is a highly specific search, so we want to allow users to have a high level of control over their search. The user still has the choice of leaving any field blank, but all options are provided.</p>
+                <p>We used a slightly modified version of the keyword scoring above, with the only difference being that the tag can be explicitly defined. This allows the user to really narrow down search results.</p>
+                <div class="center">
+                    <img src="img/lah-search-wide.png" alt="LAH search from directory view" class="shadow" />
+                </div>
+                <p>We spent a lot of time considering the layout and function of the search bar. We also revised the location input field to be extremely forgiving in which location formats could be accepted. For example, queries as simple as just <b>"Chicago"</b> or as complex as <b>"600 E Grand Ave, Chicago, IL 60611"</b> would both be accepted. With some extra engineering work and some research into basic search algorithms, we were able to optimize the user experience in both search cases.</p>
+
+                <h5>Finding the best way to present resource data</h5>
+                <p><b>Problem </b><br>Resources are very complex and contain a lot of data. When displaying many resource cards on the map view, we need to find a way to display the data in a digestible manner so that users can easily skim or provide more detail if requested.</p>
+                <p><b>Solution </b><br>When designing this card system for the resources, we needed to work around this idea of cognitive load. We wanted the user to understand the information while also keeping the cognitive load low. This means limiting the information presented to only the most important items and also structuring the data in a user-friendly manner. While this is great for skimming, we still need to make the details of a resource accessible. To accomplish this, we designed around the principle of progressive disclosure.</p>
+                <p>We progressively display information with 3 states: <br>condensed card &#8594; expanded card &#8594; modal window</p>
+                <div class="center">
+                    <img src="img/lah-progessive.png" alt="Progressive disclosure of the cards" />
+                </div>
+                <p>Each progressive level will present more data, eventually displaying it all when you reach the modal window. This progression is representative of user behavior on the map view. When browsing for an item the distance, name, and tags are generally the most important, with a description to add some context. Then if you want more, expanding the card reveals relevant information to give to the former, including the address, contact, and phone number. More specific results are listed on the modal window if necessary. But we kept all the most relevant information within one click.</p>
+
+                <h5>Building the map view for power users</h5>
+                <p><b>Problem </b><br>Currently our map view is focused more on slowly guiding you to the information you need from a given resource through progressive disclosure. This method works great for users who may not be familiar with the UI or the specific resource. But for some of our users (LAH staff), this application will be see extended daily use. The staff will be extremely familiar with the resources and the use of progressive disclosure will unnecessary in many cases. So how do we make our card design more user friendly for power users?</p>
+                <p><b>Solution </b><br>We need to implement a feature that the power users can utilize without the interrupting the user experience for other users. We had to consider the behavior behind why the current model doesn't work. The LAH staff (power users) are highly familiar with the resources because they add them to the application and frequently contact them. Often times they know all the details of a resource, they are only looking it up on the platform because they need a specific detail they may have forgotten. Because of this, the intermediate step of the expanded card is unnecessary. They want to get directly to the modal window.</p>
+                <p>To cut the expanded view out of the process, we add a non-intrusive 'shortcut' button in the top right of the card. This button takes you directly to the modal window. This button disappears and is replaced with a 'close' button when the card is expanded. By doing this, we give the option to reduce the number of clicks it takes to go from condensed card to modal window from 2 to 1 click.</p>
+                <div class="center">
+                    <img src="img/lah-power-tool.png" alt="How progressive disclosure works with the shortcut feature" />
+                </div>
+
+                <h3>User Testing</h3>
+                <p>Since our project spanned 2 semesters, we were able to invest time in user testing. We had most of the main components built out in the fall semester (map view, directory view) which allowed us to spend spring semester pinpointing usability issues with ample time to revise.</p>
             </div>
         </div></div>
 

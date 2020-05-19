@@ -652,6 +652,24 @@ img.wide {
   margin-right: auto;
 }
 
+.four-grid-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.four-grid-link a {
+  margin: 2% 1.5%;
+  width: 47%;
+  height: auto;
+}
+.four-grid-link img {
+  width: 100%;
+  height: auto;
+}
+
 .four-grid {
   display: flex;
   align-items: flex-start;
@@ -667,11 +685,16 @@ img.wide {
 }
 
 @media (max-width: 1200px) {
+  .four-grid-link {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .four-grid-link a {
+    margin: 1.5% 1%;
+    width: 48%;
+  }
+
   .four-grid {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
     margin-left: 16px;
     margin-right: 16px;
   }
@@ -681,18 +704,30 @@ img.wide {
   }
 }
 @media (max-width: 950px) {
+  .four-grid-link {
+    display: block;
+    margin-left: 28px;
+    margin-right: 28px;
+  }
+  .four-grid-link a {
+    width: 100%;
+  }
+  .four-grid-link img {
+    margin: 16px 0;
+  }
+
   .four-grid {
     display: block;
     margin-left: 28px;
     margin-right: 28px;
   }
   .four-grid img {
-    margin: 16px 0;
     width: 100%;
+    margin: 16px 0;
   }
 }
 @media (max-width: 650px) {
-  .four-grid {
+  .four-grid-link, .four-grid {
     margin-left: 16px;
     margin-right: 16px;
   }

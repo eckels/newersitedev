@@ -227,6 +227,24 @@ img.wide {
     margin-left: auto;
     margin-right: auto;
 }
+.four-grid-link {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 24px;
+    margin-right: 24px;
+    a {
+        margin: 2% 1.5%;
+        width: 47%;
+        height: auto;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .four-grid {
     display: flex;
     align-items: flex-start;
@@ -242,11 +260,15 @@ img.wide {
 }
 
 @media (max-width: 1200px) {
+    .four-grid-link {
+        margin-left: 16px;
+        margin-right: 16px;
+        a {
+            margin: 1.5% 1%;
+            width: 48%;
+        }
+    }
     .four-grid {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-wrap: wrap;
         margin-left: 16px;
         margin-right: 16px;
         img {
@@ -257,19 +279,30 @@ img.wide {
 }
 
 @media (max-width: 950px) {
+    .four-grid-link {
+        display: block;
+        margin-left: $wide-padding;
+        margin-right: $wide-padding;
+        a {
+            width: 100%;
+        }
+        img {
+            margin: 16px 0;
+        }
+    }
     .four-grid {
         display: block;
         margin-left: $wide-padding;
         margin-right: $wide-padding;
         img {
-            margin: 16px 0;
             width: 100%;
+            margin: 16px 0;
         }
     }
 }
 
 @media (max-width: 650px) {
-    .four-grid {
+    .four-grid-link, .four-grid {
         margin-left: $small-padding;
         margin-right: $small-padding;
     }

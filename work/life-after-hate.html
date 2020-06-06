@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="right-item">
                                     <h3>Tools</h3>
-                                    <p><span>Design: </span>Sketch, Adobe Photoshop <br><span>Coding: </span>React.js, Node.js, MongoDB, Mapbox</p>
+                                    <p><span>Design: </span>Sketch, Adobe Photoshop <br><span>Coding: </span>React.js, Redux, Node.js, MongoDB, Mapbox</p>
                                 </div>
                             </div>
                         </div>
@@ -146,92 +146,96 @@
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
                 <h3>Overview</h3>
-                <p>This is a 2 semester project done with Hack4Impact aimed at extending the reach and efficiency for nonprofit <a href="https://www.lifeafterhate.org" target="_blank">Life After Hate</a> (LAH). <a href="https://uiuc.hack4impact.org" target="_blank">Hack4Impact</a> is an UIUC campus organization of students passionate about using tech for good. We develop products for nonprofits to help them further their mission and better engage their clients.</p>
-                <p>They accomplish this goal this by connecting former hate group members or members trying to leave hate groups (called formers) to resources and partners within the LAH network.</p>
-                <p>These partner businesses/individuals have volunteered their services and time to help those who are exiting hate groups. The LAH staff will then put the former in contact with these partner services to help them leave violence and racism behind. Some examples of resources are tattoo removal, career preparation, and education. ExitUSA is the specific branch of LAH that executes this process.</p>
                 <blockquote><i>"Each year, more than 250,000 people in the United States are victims of hate crimes. The vast majority are violent and more than half go unreported. Between 2008 and 2017, 71 percent of extremist-related fatalities in the U.S. were committed by members of the far right or white-supremacist movements. LAH helps people leave the violent far-right to connect with humanity and lead compassionate lives."</i> - Life After Hate</blockquote>
                 <div class="center">
                     <img src="img/lah-logo.png" alt="Life After Hate logo" style="max-width: 350px; width: 75%;" />
                 </div>
-
-                <h5>Problem</h5>
-                <p>When helping people leave hate groups, LAH staff members need to sift through their resources located on many different platforms: Excel, email, paper, and more. These resources can be either businesses or organizations that will support ex-hate group members willing to change.</p>
-                <p>This time sunk looking for resources is time not spent helping people exit hate groups, limiting LAH's reach as an organization. This bottleneck in the support process can also take up to days to complete. By automating and organizing the search process, we can speed up the process of matching resources to formers. We wanted to create a highly-secure, easily searchable, centralized web application to host and manage these resources. This way, we can enable LAH to spend more time serving people and accomplish their mission on a larger scale.</p>
-                <div class="center">
-                    <img src="img/lah-problem.png" alt="Organizing resources" class="light-mode" style="max-width: 400px; width: 80%;" />
-                    <img src="img/lah-problem-dark.png" alt="Organizing resources" class="dark-mode" style="max-width: 400px; width: 80%;" />
-                </div>
-                
-                <h5>How LAH fits Hack4Impact's goals</h5>
-                <p>When we heard about LAH's problems, we saw an immediate opportunity to help. Our organization aims to help nonprofits broaden their impact, and we do that by creating the necessary tools so that they can better focus on their core mission. When building a product, we put an emphasis on scalability, user-friendliness, and intentionality. We put special thought into building a product that can scale with the organization and support more staff along with the organization's future goals. Through rigorous user research and testing, we optimize the UX of our applications by building around the user. To make the product as impactful as possible, we personalized it to the use cases of the nonprofit. We consider the nonprofit the priority and end user, meaning that our products are made with their goals, staff, and audience in mind.</p>
+                <p><a href="https://www.lifeafterhate.org" target="_blank">Life After Hate</a> (LAH) is a nonprofit focused on helping people leave hate groups to connect with humanity and lead compassionate lives. They accomplish this goal this by connecting former hate group members or members trying to leave hate groups (called formers) to resources and partners within the LAH network. Some examples of resources are tattoo removal, career preparation, and education. </p>
+                <p>Life After Hate needed a way to manage and quickly search their resources. Two project teams helped create a web application that would allow users to search for resources and visualize on a map. The platform also had a way to manage accounts so that LAH staff could manage access to the application. This platform would allow LAH and volunteers to quickly find the information they need to assist ex-hate group members.</p>
+                <p>This is a 2 semester project done with <a href="https://uiuc.hack4impact.org" target="_blank">Hack4Impact</a> aimed at extending the reach and efficiency for the nonprofit Life After Hate. Hack4Impact is an UIUC that develops products for nonprofits to help them further their mission and better engage their clients. </p>
                 <div class="center">
                     <img src="img/h4i-logo.png" class="light-mode" alt="Hack4Impact logo" style="max-width: 400px; width: 70%;" />
                     <img src="img/h4i-logo-dark.png" class="dark-mode" alt="Hack4Impact logo" style="max-width: 400px; width: 70%;" />
                 </div>
+                
+                <h5>Problem</h5>
+                <p>When helping people (called "formers") leave hate groups, LAH staff members need to sift through their partner resources located on many different platforms such as Excel, email, paper, etc. LAH has had hundreds of businesses and individuals volunteer for their cause, but it can be hard to find the right resource to fulfill a person's specific request.</p>
+                <p>This bottleneck in the support process can also take days to complete. By automating and organizing the search process, we can speed up the process of matching resources to formers. We wanted to create a highly-secure, easily searchable, centralized web application to host and manage these resources. This would enable LAH to focus more on outreach and accomplish their mission on a larger scale.</p>
+                <div class="center">
+                    <img src="img/lah-problem.png" alt="Organizing resources" class="light-mode" style="max-width: 400px; width: 80%;" />
+                    <img src="img/lah-problem-dark.png" alt="Organizing resources" class="dark-mode" style="max-width: 400px; width: 80%;" />
+                </div>
 
                 <h5>Overview of solution</h5>
-                <p>After a few calls with LAH, we found that a map view would be necessary for the platform since location and proximity of resources are important when LAH helps individuals. The map view would serve a similar purpose as websites such as Redfin, giving a visual representation of data to help illustrate distance and positioning. We are not as focused on the landscape as Redfin is when choosing real estate, but this map view is still necessary since proximity is important for our product. There is also the chance that the user may want to do a high-intent search, meaning they are looking for something very specific such as a particular resources contact name. In this case we need to display search results in a way that allows you to quickly skim through resource details. We did this by adding a separate directory view. This directory view focuses on displaying the details of the resources in a spreadsheet format to make it easy to quickly find the intended resource.</p>
+                <p>After a few calls with LAH, we found that a map view would be necessary since location and proximity of resources are important when helping ex-hate group members. The map view would be similar to websites such as Redfin by giving a visual representation of data to help illustrate distance and positioning. While Redfin has a heavy focus on landscape, our map view focuses more on proximity. </p>
+                <div class="center">
+                    <img src="img/lah-redfin.jpg" alt="Redfin map view" class="shadow" />
+                    <p class="caption">Redfin map view</p>
+                </div>
+                <p>There is also the chance that the user may want to do a high-intent search where they search using details such as a particular contact name. In this case, we need to display search results in a way that allows users to quickly skim through resource details. We did this by adding a separate directory view. This directory view displays resource details in a spreadsheet format to make it easy to find the intended resource. </p>
 
                 <h3>Roles and Responsibilities</h3>
-                <p>I served as the Product Designer on a team with a Product Manager, Tech Lead and 5 developers. We had two different teams for the Fall and Spring semesters, only difference in composition being that the Spring team had one less developer.</p>
+                <p>I served as the Product Designer on a team with a Product Manager, Technical Lead and 5 software developers. We had two different teams for the fall and spring semesters, only difference in composition being that the spring team had one less developer. </p>
                 <h5>Fall 2019 Team</h5>
                 <img src="img/lah-fall.jpg" class="light-mode" alt="Fall 2019 Team" />
                 <img src="img/lah-fall-dark.jpg" class="dark-mode" alt="Fall 2019 Team" />
                 <h5>Spring 2020 Team</h5>
                 <img src="img/lah-spring.jpg" class="light-mode" alt="Spring 2020 Team" />
                 <img src="img/lah-spring-dark.jpg" class="dark-mode" alt="Spring 2020 Team" />
-                <p>As a designer and Front-end Developer, I was in charge of the UI and UX of the application. I worked closely with the Product Manager to help create user-centric prototypes and mockups, while also working with Front-end Developers to implement these designs in React.js.</p>
+                <p>As a designer and front-end developer, I was in charge of the UI and UX of the application. I worked closely with the Product Manager to help create user-centric prototypes and mockups, while also working with front-end developers to implement these designs in React. </p>
 
                 <h3>Product Scoping</h3>
-                <p>The first things we had to address before we got building were the scope of the project and the constraints. We needed to ensure we were picking the most impactful features to include in our product while also considering the complexity that these features may bring to the project. By thoughtfully scoping this project out, we ensure we build a product that most effectively addresses LAH's problems in 2 semesters of development.</p>
-
-                <h5>Scope</h5>
-                <p>I gave a brief overview of the rationale behind the choice of having the map view along with the directory view. This gives a broad solution to LAH's problems, but there are many details that still need to be explored.</p>
-                <p>In terms of users, we currently only have 1-2 of LAH's staff that would be using this product daily. While the current user base is small, LAH has plans to expand this resource/partner database to hundreds of volunteers and to grow their volunteer team in the future. To accommodate this, an account management system becomes a necessary feature.</p>
-                <p>One feature we actually passed on was the optimization of the map view for mobile. Given our users, we found that the application would be used almost exclusively on desktop. The time we would spend making the map view on mobile would be better spent working on another feature, so we decided to pass on scoping a complex feature that would see little to no use.</p>
-                <p>Since Hack4Impact works in increments of 1-2 semesters, it is important that we weight the complexity and impact of features against each other when deciding to include them or not. We have to prioritize completion of more important features to ensure we create the optimal product in our defined time frame.</p>
+                <p>I gave a brief overview of the rationale behind the choice of having the map view along with the directory view. This gives a broad solution to LAH's problems, but there are many details that still need to be explored. </p>
+                <p>In terms of users, we currently only have 1-2 of LAH's staff that would be using this product daily. While the current user base is small, LAH has plans to expand this resource/partner database to hundreds of volunteers. To accommodate this, an account management system becomes necessary. </p>
+                <p>One feature we passed on was mobile optimization. Given our users, we found that the application would be used almost exclusively on desktop. The time we would spend making the map view on mobile would be better spent working on another feature, so we chose to pass on scoping a complex feature that would see little to no use. </p>
+                <p>Since Hack4Impact works in increments of 1-2 semesters, it is important that we weight the complexity and impact of features against each other when deciding to include them or not. We have to prioritize completion of more important features to ensure we create the optimal product in our defined time frame. </p>
 
                 <h5>Constraints</h5>
-                <p>One constraint that was immediately obvious to us as an organization was the handoff from one team to another between the Fall and Spring semesters. We needed to ensure the second team could easily understand and work off of the existing codebase. We would need to pay special attention to naming conventions, code formatting, and standardizing the site structure.</p>
-                <p>The way the project would pan out is that the Fall team would focus on the map and directory view while the Spring team would focus on account management and tying up loose ends. We focused on addressing the main map and directory views first so that we had time to process user testing and feedback to improve our principal features.</p>
-                <p>Another constraint we came across concerned the security of our application. The data that we are displaying on our application has personally identifying information for the individuals and businesses volunteering their services. If a hate group were to get their hands on this information, it could be catastrophic for those businesses and individuals. To ensure the security of this information, we opted to use Google OAuth to handle sign-ins. Google is a widely used and highly secure service, so it was an optimal choice to ensure security and inclusivity for those who will access the platform.</p>
+                <p>One constraint that was immediately obvious to us as an organization was the handoff from one team to another between the fall and spring semesters. We paid special attention to naming conventions, code formatting, and standardizing site structure to ensure the spring team could easily work off of our existing codebase. </p>
+                <p>The way the project would pan out is that the fall team would focus on the map and directory view while the spring team would focus on account management, increasing engineering reliability, and building features based on user feedback. Focusing on the main map and directory views first would ensure we had time to process user testing and feedback to improve principal features. </p>
+                <p>Another constraint we came across concerned the security of our application. The data that we are displaying on our application has personally identifying information for individuals and businesses volunteering for LAH. If a hate group were to get their hands on this information, it could be catastrophic for those businesses and individuals. To ensure the security of this information, we chose to use Google OAuth to handle sign-ins. Google is a widely used and highly secure service, so it was the optimal choice to ensure security and inclusivity for those who access the platform. </p>
 
                 <h3>Product Research</h3>
-                <p>Before we start creating the designs for the application, we need to fully understand the audience of our application and some existing alternatives.</p>
+                <p>Before we start creating designs for the application, we need to fully understand our audience and explore existing alternatives. </p>
                 
                 <h5>Alternatives</h5>
-                <p>Starting with some alternatives to our application, the most obvious one is Excel/Google sheets. Both products allow for easy filtering, storage, and displaying of resource information. These products are similar to our directory view, but our map view remains unique. When creating this product, we will keep in mind the similarities to Excel and Google sheets. We can use this to our advantage by asking for pain points that LAH currently has with using Excel to store their resources.</p>
-                <p>For the map view, there are not really any intuitive consumer projects that could store resource information and display dynamically on a map. This is where we see a lot of value and use coming from our product. As a result, we will invest more time developing the map view.</p>
+                <p>Starting with some alternatives to our application, the most obvious one is Excel/Google sheets. Both products allow for easy filtering, storage, and display information effectively. These products are similar to our directory view, but our map view remains unique. We can use this as an opportunity to differentiate our product by addressing LAH's pain points with spreadsheet products. </p>
+                <p>LAH's main pain points with Excel: </p>
+                <ul>
+                    <li>Resources are not easy to skim/browse</li>
+                    <li>No way to gauge distance or location with addresses</li>
+                    <li>Cannot search using both a location and keyword</li>
+                </ul>
 
                 <h5>User research</h5>
-                <p>The first thing we need to do is define the user. In terms of our immediate users, we have the 2 staff members of LAH. We also need to keep the potential volunteers in mind. Our product has a well defined use case, where all our users will be using this platform to search for resources and occasionally add/edit them.</p>
-                <p>We couldn't rely on 1-2 users for all user feedback to build this application. We had to extrapolate some of the feedback to see if our platform would work for a generalized audience with little to no friction. To do this, we had Hack4Impact members test the function of our application prototypes and extensively researched the audiences and design decisions of similar products like Yelp, Google Maps, WebMD, and Redfin.</p>
+                <p>The first thing we need to do is define the user. In terms of our immediate users, we have 2 LAH staff. We also need to keep the potential volunteers in mind. Our product has a well defined use case, where all our users will be using this platform to search for resources and occasionally add/edit them. </p>
+                <p>We couldn't rely on only 1-2 users for all user feedback to build this application. We had to extrapolate some of the feedback to see if our platform would work for a generalized audience with little to no friction. To do this, we had Hack4Impact members test the function of our application prototypes and extensively researched the audiences and design decisions of similar products like Yelp, Google Maps, WebMD, and Redfin. </p>
                 <p>By doing some research on our users, we are able to come up with a list of user needs and other characteristics that will influence our design. By asking questions to LAH staff and volunteers, we were able to define the following user needs:</p>
                 <ul>
-                    <li>Volunteers and staff need to be able to input different locations to base the search off of</li>
-                    <li>Users need to be able to edit the search radius to tune results for densely vs sparsely populated resource areas</li>
-                    <li>Ability to edit or add resources from any page</li>
-                    <li>LAH staff must have the ability to manage user access to the platform</li>
+                    <li>Volunteers and staff need to be able to change search location</li>
+                    <li>Adjust search radius for densely and sparsely populated areas</li>
+                    <li>Ability to edit or add resources</li>
+                    <li>Staff must have the ability to manage user access to the platform</li>
                     <li>Ability to copy paste information easily</li>
                     <li>Users need to be able to gauge distance of resource from the former</li>
                     <li>The resources need to be easy to skim</li>
                     <li>Users need to be able to search by tag</li>
-                    <li>This is a power tool, so actions should be quick and might not require the most guidance</li>
+                    <li>This is a power tool, so actions should be quick</li>
                     <li>The interface should be ideal for desktop</li>
                 </ul>
 
                 <h5>User flow</h5>
-                <p>After identifying the user needs, we can go straight into building out the user flow diagram. This will help us lay out the architecture of our application in terms of actions + screens by building around the use cases of the app.</p>
+                <p>After identifying the user needs, we can go straight into building out the user flow diagram. This will help us lay out the architecture by creating flows of actions/screens that revolve around use cases.</p>
                 <p>Some of the use cases we can identify are:</p>
                 <ul>
-                    <li>general search (looking for resources in a given radius and/or certain category)</li>
-                    <li>high-intent search (looking for a specific resource by looking up owners name)</li>
+                    <li>general search (broad searches based on location and names/categories)</li>
+                    <li>high-intent search (Searching using specific queries/details)</li>
                     <li>Adding a resource</li>
                     <li>Editing/deleting a resource</li>
-                    <li>Giving a user permission to application</li>
-                    <li>Removing / changing user privileges</li>
+                    <li>Giving a user access to the platform</li>
+                    <li>Removing/changing user privileges</li>
                 </ul>
-                <p>We can base our user flow diagram off of these 6 actions. This diagram combines all 6 actions into one graphic:</p>
+                <p>This flow diagram combines all 6 actions into one graphic:</p>
             </div>
         </div></div>
 
@@ -241,8 +245,8 @@
 
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
-                <p>In the user flow diagram, the dark orange shapes represent our starting points and the completion of a user task.</p>
-                <p>By building out a user flow, we can build out the skeleton of our application and easily see what tasks take too long to complete or are not the most intuitive. This is a good foundation for building the UX of the application, and is extremely simple to draw out and visualize. We often cannot optimize every action to be quick and intuitive. In our case, we prioritized the speed and ease of searching over the edit resource function.</p>
+                <p>In the user flow diagram, the dark orange shapes represent completion of user tasks.</p>
+                <p>We have two account types, admins and volunteers. There are a few key differences between these two account types. Volunteers do not have access to the Account management page and are not able to add or view resources while admins do not have these restrictions. </p>
                 
                 <h3>Prototyping</h3>
                 <p>After perfecting the user flow diagram, I got to work on the wireframes for the app. When creating these wireframes, I worked off of our user research and based the layout off of similar products (Yelp, Google Maps, WebMD, and Redfin).</p>
@@ -268,14 +272,16 @@
 
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
+                <p>All the mockups and designs displayed throughout this case study are from an admin point of view, meaning that there will be the option to edit and the account management page will be accessible. For volunteer accounts everything is the same except the management tab, edit button, and add resource button will be hidden. </p>
+
                 <h3>Key Problems</h3>
-                <p>There were quite a few problems where we really dug deep to solve. I've outlined some of our more impactful design decisions that we made to provide a better experience for the user.</p>
+                <p>There were quite a few problems we really dug deep to solve. I've outlined some of our more impactful design decisions we made to provide a better user experience. </p>
 
                 <h5>Optimizing the search experience</h5>
-                <p><b>Problem </b><br>When searching, we had 3 different types of data that factored into the search ranking: location, tag, and the keywords. Having 3 different inputs would make searching much slower. How do we keep the form user friendly while still collecting all the data we need to make a search?</p>
-                <p><b>Solution </b><br>We had to go back to the differences between high-intent search and general search. We had already decided that high-intent search would be on the directory view page, while the general search would be on the map view page. So we broke down exactly what we needed to make both of the searches.</p>
-                <p><b>General search:</b> We decided that keywords and tags were interchangeable and that location was a staple. This search is more broad, and from our user research, staff would likely be using one or the other. Through following principles of Postel's Law, we decided to make the second input highly versatile by accepting both tag and keyword queries. Postel's Law states that you should be Be liberal in what you accept, and conservative in what you send. We keep the search open ended and keep the results relevant to what search query was given to us.</p>
-                <p>To make this work, we created a weighted search algorithm that weighs the keywords that are found within resources. Based on research and user needs, we created a search ranking system with the following components contributing to the rankings:</p>
+                <p><b>Problem </b><br>When searching, we had 3 different types of data that factored into the search ranking: location, tag, and the keywords. Having 3 different text inputs would make searching take longer. How do we keep the search form user friendly while still collecting necessary data to make a search?</p>
+                <p><b>Solution </b><br>We had to go back to the differences between high-intent search and general search. We had already decided that high-intent search would be on the directory view page, while the general search would be on the map view page. So we broke down exactly what we needed to make both searches.</p>
+                <p><b>General search: </b>Of the 3 different possible inputs, we found that for general searches LAH staff would use location and either keywords or tags. Location was a staple for this type of search, so we gave it a dedicated input field. Following principles of Postel's Law, we made the second input highly versatile by accepting both tag and keyword queries. Postel's Law states that you should be be liberal in what you accept, and conservative in what you send. We keep the search open ended and kept results relevant to the given search query. </p>
+                <p>To make this work, we created a weighted search algorithm that weighs keywords found within resources. Based on research and user needs, we created a search ranking system with the following components contributing to the rankings: </p>
                 <ul>
                     <li>Name of business</li>
                     <li>Point of contact</li>
@@ -283,53 +289,53 @@
                     <li>Matches in description</li>
                     <li>Matches in notes</li>
                 </ul>
-                <p>Each components has a specific weight based on how well the search query matches a resource and how important that aspect of the resource is.</p>
+                <p>Each components has a weight based on how important we found them when displaying search results.</p>
                 <div class="center">
                     <img src="img/lah-search.png" alt="LAH search from map view" />
                 </div>
-                <p><b>High-intent search:</b> Because of the nature of high-intent search, we decided to include all 3 data components in the search. Location, tags, and keywords. This is a highly specific search, so we want to allow users to have a high level of control over their search. The user still has the choice of leaving any field blank, but all options are provided.</p>
-                <p>We used a slightly modified version of the keyword scoring above, with the only difference being that the tag can be explicitly defined. This allows the user to really narrow down search results.</p>
+                <p><b>High-intent search: </b>Because high-intent search is highly specific, we needed to use all 3 data components: location, tags, and keywords. These 3 independent fields give the user a high level of control over searches. The user still has the choice of leaving any field blank, but all options are provided. </p>
+                <p>We used a slightly modified version of the keyword scoring above, with the only difference being that the tag can be explicitly defined. This allows the user to really narrow down search results. </p>
                 <div class="center">
                     <img src="img/lah-search-wide.png" alt="LAH search from directory view" />
                 </div>
-                <p>We spent a lot of time considering the layout and function of the search bar. We also revised the location input field to be extremely forgiving in which location formats could be accepted. For example, queries as simple as just <b>"Chicago"</b> or as complex as <b>"600 E Grand Ave, Chicago, IL 60611"</b> would both be accepted. With some extra engineering work and some research into basic search algorithms, we were able to optimize the user experience in both search cases.</p>
+                <p>We revised the location input field to be extremely forgiving by accepting many location formats. Queries as simple as just <b>"Chicago"</b> or as complex as <b>"600 E Grand Ave, Chicago, IL 60611"</b> would both be accepted. With some extra engineering work and some research into basic search algorithms, we were able to optimize the user experience in both search cases. </p>
 
                 <h5>Finding the best way to present resource data</h5>
-                <p><b>Problem </b><br>Resources are very complex and contain a lot of data. When displaying many resource cards on the map view, we need to find a way to display the data in a digestible manner so that users can easily skim or provide more detail if requested.</p>
-                <p><b>Solution </b><br>When designing this card system for the resources, we needed to work around this idea of cognitive load. We wanted the user to understand the information while also keeping the cognitive load low. This means limiting the information presented to only the most important items and also structuring the data in a user-friendly manner. While this is great for skimming, we still need to make the details of a resource accessible. To accomplish this, we designed around the principle of progressive disclosure.</p>
-                <p>We progressively display information with 3 states: <br>condensed card &#8594; expanded card &#8594; modal window</p>
+                <p><b>Problem </b><br>LAH's resources are very complex and contain a lot of data. When displaying many resource cards on the map view, we needed to find a way to display the data in a digestible manner so users can easily skim and request more details. </p>
+                <p><b>Solution </b><br>LAH's resources are very complex and contain a lot of data. When displaying many resource cards on the map view, we needed to find a way to display the data in a digestible manner so users can easily skim and request more details. </p>
+                <p>Information is progressively displayed through 3 states: <br>condensed card &#8594; expanded card &#8594; modal window</p>
                 <div class="center">
                     <img src="img/lah-progessive.png" alt="Progressive disclosure of the cards" />
                 </div>
-                <p>Each progressive level will present more data, eventually displaying it all when you reach the modal window. This progression is representative of user behavior on the map view. When browsing for an item the distance, name, and tags are generally the most important, with a description to add some context. Then if you want more, expanding the card reveals relevant information to give to the former, including the address, contact, and phone number. More specific results are listed on the modal window if necessary. But we kept all the most relevant information within one click.</p>
+                <p>Each progressive level will present more data, eventually displaying all details when you reach the modal window. This progression is representative of user behavior on the map view. When browsing for an item the distance, name, and tags are generally the most important, with a description to add some context. Then if you want more, expanding the card reveals relevant information to give to the former. This card would include details such as full description, email, and address. More specific results are listed on the modal window if necessary. But we kept all the most relevant information within one click. </p>
 
                 <h5>Building the map view for power users</h5>
-                <p><b>Problem </b><br>Currently our map view is focused more on slowly guiding you to the information you need from a given resource through progressive disclosure. This method works great for users who may not be familiar with the UI or the specific resource. But for some of our users (LAH staff), this application will be see extended daily use. The staff will be extremely familiar with the resources and the use of progressive disclosure will unnecessary in many cases. So how do we make our card design more user friendly for power users?</p>
-                <p><b>Solution </b><br>We need to implement a feature that the power users can utilize without the interrupting the user experience for other users. We had to consider the behavior behind why the current model doesn't work. The LAH staff (power users) are highly familiar with the resources because they add them to the application and frequently contact them. Often times they know all the details of a resource, they are only looking it up on the platform because they need a specific detail they may have forgotten. Because of this, the intermediate step of the expanded card is unnecessary. They want to get directly to the modal window.</p>
-                <p>To cut the expanded view out of the process, we add a non-intrusive 'shortcut' button in the top right of the card. This button takes you directly to the modal window. This button disappears and is replaced with a 'close' button when the card is expanded. By doing this, we give the option to reduce the number of clicks it takes to go from condensed card to modal window from 2 to 1 click.</p>
+                <p><b>Problem </b><br>Currently our map view is focused on slowly guiding you to the resource information you need through progressive disclosure. This method works great for users who are not familiar with the platform, but for some users (LAH staff) this application will be used extensively on a daily basis. The staff will be extremely familiar with the resources and the use of progressive disclosure will unnecessary in many cases. So how do we make our card design more user friendly for power users? </p>
+                <p><b>Solution </b><br>We need to implement a feature that the power users can utilize without interrupting the user experience for other users. The LAH staff (power users) are highly familiar with the resources because they are the ones who most likely are in contact with them and added them to the platform. Often times they know some specifics of a resource, they are only looking it up because they need a specific detail. Because of this, the intermediate step of expanding the card is unnecessary. Power users want to get directly to the modal window. </p>
+                <p>To cut the expanded view out of the process, we add a non-intrusive "shortcut" button in the top right of the card. This button takes you directly to the modal window. This button disappears and is replaced with a "close" button when the card is expanded. By doing this, we give the option to reduce the number of clicks it takes to go from condensed card to modal window from 2 to 1 click. </p>
                 <div class="center">
                     <img src="img/lah-power-tool.png" alt="How progressive disclosure works with the shortcut feature" />
                 </div>
 
                 <h3>User Testing</h3>
-                <p>Since our project spanned 2 semesters, we were able to invest time in user testing. We had most of the main components built out in the fall semester (map view, directory view) which allowed us to spend spring semester pinpointing usability issues with ample time to revise.</p>
-                <p>We primarily did user testing with the LAH staff and people who did not have a deep understanding of the application. We asked the users to try and complete certain tasks and documented the processes that each user followed to get to the end goal.</p>
-                <p>Through testing, we found that a lot of users were clicking on the 'tags' of a resource. After further research, we found that the tags resembled buttons. They had an outline and used the same bright orange accent color as the buttons and map pins, both clickable objects.</p>
+                <p>Since our project spanned 2 semesters, we were able to invest time and resources into user testing. We had most of the main components built out in the fall semester (map view, directory view) which allowed us to spend spring semester pinpointing usability issues with ample time to revise. </p>
+                <p>We primarily did user testing with the LAH staff and people who did not have a deep understanding of the application. We asked the users to try and complete certain tasks and documented the processes that each user followed to reach the end goal. </p>
+                <p>Through testing, we found that a lot of users were clicking on the "tags" of a resource. After further research, we found that the tags resembled buttons. They had an outline and used the same bright orange accent color as the buttons and map pins, both clickable objects. </p>
                 <div class="center">
                     <img src="img/lah-tags.png" alt="Tags from the LAH application" style="width: 50%; max-width: 200px;" />
                 </div>
-                <p>Our initial solution was to revise the design to have no border and use a more neutral color, but we decided that this was a necessary feature to add. The pilot users were trying to filter by tag. They needed it to complete their task and were left frustrated when it did nothing and had to go to plan B. We left a lot of time to work on usability issues, and decided it could be added to the scope without any adverse effect to our current timeline.</p>
-                <p>I already went through the reasons for leaving a dedicated tag filtering input on the map view search in the 'Key Issues' section above, but we decided that it somehow needed to be incorporated.</p>
-                <p>We took a look at the user behavior and noticed that users were only clicking on the category tags after they couldn't find what they were looking for in the top results. For most users, filtering becomes important after they have started scrolling through the resources and want to look at related resources. Going back up to the search bar and typing the tag in would be more work, when the user could simply click on the tag.</p>
-                <p>I want to reiterate that this map view is being used for general searches, meaning that they often will not have a tag in mind unless they see it. If they are looking for a specific tag, they would search in the directory view.</p>
-                <p>Having a clickable tag acts as a "recommended" section to find related resources. So the implementation we designed was to have users click on the tag they want to filter by, and this would be added under the search bar and re-trigger the search.</p>
+                <p>Our initial solution was to revise the design to have no border and use a more neutral color, but  instead felt there was a better way to address this. The pilot users were trying to filter by tag. They needed it to complete their task and were left frustrated when it did nothing and were forced to plan B. We left a lot of time to work on usability issues, and decided interactive tag filtering could be added to the scope without any adverse effect to our current timeline. </p>
+                <p>I already went through the reasons for leaving a dedicated tag filtering input on the map view search in the "Key Issues" section above. Despite that, we decided that tag filtering somehow needed to be incorporated but without compromising the simplicity of the current search experience. </p>
+                <p>We took a look at the user behavior and noticed that users were only clicking on the category tags after they couldn't find what they were looking for in the top results. For most users, filtering becomes important after they have started scrolling through the resources and want to look at related resources. Going back up to the search bar and typing the tag in would be more work, when the user could simply click on the tag. </p>
+                <p>This map view is being used for general searches, meaning that they often will not have a tag in mind unless they come across it in the search results. If they are looking for a specific tag, they would search in the directory view. </p>
+                <p>Having a clickable tag acts as a "recommended" section to find related resources. So the implementation we designed was to have users click on the tag they want to filter by, and this would be added under the search bar and re-trigger the search. </p>
                 <div class="center">
                     <img src="img/lah-tags-filter.png" alt="Map view search with the tag filter applied" />
                 </div>
-                <p>You can easily remove the tag simply by hitting the 'x'. By adding this feature we will make it easier to browse for resources. This may be a little bit less useful for power users who know exactly what they are looking for, but when this product is expanded to volunteers we expect to see the feature utilized more.</p>
+                <p>By adding this feature we will make it easier to browse for resources. This may be a little bit less useful for power users who know exactly what they are looking for, but when this product is expanded to volunteers we expect to see this feature utilized more. </p>
 
                 <h3>Final Product</h3>
-                <p>After all of the user research, prototyping, and user testing we came to our final designs. The Front-end Developers did a great job implementing the designs in React.js throughout the 2 semester project.</p>
+                <p>After all of the user research, prototyping, and user testing we came to our final designs. The web app was created over 2 semesters by 13 developers using React, Redux, Node.js, and MongoDB. </p>
             </div>
         </div></div>
 
@@ -340,12 +346,15 @@
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
                 <h5>Designing with Life After Hate's brand</h5>
+                <p>Life After Hate already had a pretty established brand, with logos and a general color scheme. For colors, we used the main brand orange along with the gray as seen in the logo. We found it hard to design the application with one accent color and black, white, and the one gray, so we added a few different shades of orange and neutral colors while staying true to their original brand. </p>
+                <p>There wasn't an established typeface for LAH, so we went with a common sans-serif font, Roboto. The font is well suited for the card design that was used throughout the application. </p>
                 <div class="center">
                     <img src="img/lah-branding.png" alt="LAH brand guidelines" class="light-mode" />
                     <img src="img/lah-branding-dark.png" alt="LAH brand guidelines" class="dark-mode" />
                 </div>
 
                 <h5>Login page</h5>
+                <p>The login system is relatively simple from a design perspective. There are only three login states: not logged in, logged in but pending approval, and logged in with approval (full access to platform). The UI is very simple, with no text input since authentication is done with Google. </p>
             </div>
         </div></div>
 
@@ -362,7 +371,10 @@
 
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
+                <p>When you first arrive on the platform, you are greeted with the sign in page. This page will bring you to a Google hosted page and prompt you to select a Google account. After this step, you are either directed to the map view (if you are a returning user with access to the application) or to the pending approval page. A sign-out button was included in case you select the wrong account when signing in. </p>
+
                 <h5>Map view page</h5>
+                <p>The map view is page we expect to be used the most. Based on feedback, the map view fits the largest percentage of use cases. As a result, the map view has more features and is the default page after login. We tried to make the UI feel similar to other map based platforms (Google Maps and Redfin) to help the user feel some familiarity and replicate some of the efficiencies in these widely used products. </p>
             </div>
         </div></div>
 
@@ -385,7 +397,16 @@
 
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
+                <p>A lot of the features have been previously covered, but the design hasn't been covered at a macro level. Starting with the layout, we took inspiration from Google maps and created a left-aligned search result box on top of the map. We chose the left side for the search box because it  follows the Z-pattern (blue arrows). Our hope is for users to quickly find the search box, and we used general user viewing patterns to position it correctly. </p>
+                <p>Beyond the search box, we used the F-pattern (eye tracking pattern coined by Nielsen Norman Group) to help us model how we would display search results. Users first read across. In this case they read the first card and the name of the resource along with maybe a line of the description. If it isn't what they are looking for, they move down the page, reading less and less as they go. This creates an F-pattern (red arrows). The amount they read across decreases as the user gets further down the list. Because of this, we needed to make sure that the search results were displayed based on relevance rather than something like distance. </p>
+                <p>We also needed the resource cards to be quick to read. The less time spent going horizontally, the faster the user will go down vertically. This is part of the justification for progressive disclosure. We want to present a small amount of extremely relevant information so that the user can easily make a decision to continue with the current resource or move on to the next. </p>
+                <div class="center">
+                    <img src="img/lah-pattern.jpg" alt="Z-pattern (blue arrows) and F-pattern (red arrows) on the LAH map search results" class="shadow" />
+                    <p class="caption">Z-pattern (blue arrows) and F-pattern (red arrows) on the LAH map search results</p>
+                </div>
+
                 <h5>Directory view page</h5>
+                <p>The directory view is meant for high-intent searches and quickly adding resources. You can edit/view resources just as on the map view. We have the 3 field search bar followed by the grid view of resources. </p>
             </div>
         </div></div>
 
@@ -402,7 +423,11 @@
 
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
+                <p>I covered most of the UX decisions with the high-intent search in the "Key Problems" section, but I haven't gone through the UI components. For displaying the resources, we opted for a row and column design. Line separated rows would have been more space efficient, but we chose to keep the drop-shadow card design for resources on this page. The reason being that we want to keep our design consistent. The map view has cards holding resources, and we wanted to mirror this same design style on the map view to help users make the connection that these are the same resources as on the map view. </p>
+                <p>While the directory page will usually be used for high-intent search, we also wanted to allow quick search. We made sure that the 3 fields could all be used, only one be used, or a combination of them be used when searching for resources. This flexibility makes the directory highly versatile, and able to fulfill more than just specific queries. You lose the visualization that the map view provides, but still have a lot of flexibility when using this view. Skimming and quick filtering resources were some pain points in the map view, and we used the directory view to address them. </p>
+
                 <h5>Account management page</h5>
+                <p>This page was added to help allow LAH to expand very efficiently. By having a dedicated page for admins to review and grant/deny access to the platform, it is easy to manage hundreds of users and their permissions. </p>
             </div>
         </div></div>
 
@@ -419,13 +444,22 @@
 
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
-                <h3>Takeaways</h3>
+                <p>This page is very similar to the directory view, except this page has tabs to separate the different account states. There are 4 different account states: admin, volunteer, pending, and rejected. </p>
                 <div class="center">
                     <img src="img/lah-account-types.png" alt="Account types for LAH platform" style="max-width: 600px; width: 100%;" class="light-mode" />
                     <img src="img/lah-account-types-dark.png" alt="Account types for LAH platform" style="max-width: 600px; width: 100%;" class="dark-mode" />
                 </div>
-                <img src="img/lah-team.jpg" alt="Hack4Impact's Fall 2019 and Spring 2020 LAH development teams" class="shadow" />
-                <p class="caption">Hack4Impact's Fall 2019 and Spring 2020 LAH development teams</p>
+                <p>For this page, we group admins and volunteers together as "active users" but we keep the groups separate by displaying admins on top. We have separate categories for pending and rejected users. Separating pending and rejected states was important because it solves a few issues. If a user is denied access, we want it to stay that way. Without a rejected state they could keep requesting access. Instead, we can move them to the rejected pile and their requests for access will not show up. The rejected state also allows LAH to keep track of who has previously requested access and give or revoke access to the platform easily. </p>
+                <p>We also have a "Title" field which serves as a way for admins to mark down notes for users. This would make it easier for them to remember who someone is and why they have a certain permission/role. </p>
+
+                <h3>Takeaways</h3>
+                <p>This being my first project as a product designer for Hack4Impact, I got a ton of experience working with a team. Most of my previous design projects were done in smaller groups and on a more undefined timeline. With Hack4Impact, there was a lot going on at once, and I had to make sure my designs were easy to implement and ready for development. I also found myself reviewing PR's, assigning and creating tickets, and other various development related tasks. My role went beyond just designing, and I got a lot of experience developing parts of the front-end and learning more about how to build a product. </p>
+                <p>One of the biggest takeaways for me was learning the importance of prototyping. Early phase prototyping allowed me to deliver low-fidelity designs to devs so they could get the structure of the application created while I focused on perfecting the prototypes through user research and testing. I spent less time on intricate details and more time on the high-level experience of my designs. </p>
+                <p>I also found out how important it is to keep the development in mind. Typically the designer just creates a mockup with no regard for implementation and instead focuses purely on UI and UX. While these are the most important aspects for a designer, I learned it is important to also factor in the engineering side. There may be stylings or components that work better, but might be extremely hard for developers to implement or would not work well with the tech stack. Knowing the limitations of your development stack and staying up to date with the code-base can keep you aware of the product at a higher level. Which allows you to design features that could use the API more efficiently or gracefully build off of existing components. Keeping things realistic for developers helps the product move along and leaves time for more features to be built. </p>
+                <p>Overall, the project was a great learning experience and I learned how effective teams function. I want to thank my Product Manager, Alan Fang, and my Technical Lead, Josh Byster for their hard work leading this project, teaching our team, and being great mentors. I would also like to thank the fall and spring LAH developers for their hard work which helped make this product a success. Life After Hate also played a huge role in the creation of this product by spending time meeting and emailing us, making sure we had everything we needed. </p>
+                <p>We put a lot of thought and work into this product, and we hope that it helps Life After Hate grow and make a larger impact. </p>
+                <img src="img/lah-team.jpg" alt="Hack4Impact's fall 2019 and spring 2020 LAH development teams" class="shadow" />
+                <p class="caption">Hack4Impact's fall 2019 and spring 2020 LAH development teams</p>
             </div>
         </div></div>
 

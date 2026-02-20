@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../styling/css/project.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="57x57" href="../img/icon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="../img/icon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/icon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="../img/icon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/icon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../img/icon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="../img/icon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="../img/icon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../img/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="../img/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../img/icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="../img/icon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/icon/favicon-16x16.png">
+        <link rel="manifest" href="img/icon/manifest.json">
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="../img/icon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#FFFFFF">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110019881-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-110019881-1');
+        </script>
+        <title>ReCard - Evan Eckels</title>
+        <script src="../js/dark-mode.js"></script>
+    </head>
+
+    <body>
+        <style>
+            a {
+                color: #22CC9D !important;
+                border-bottom-color: #22CC9D !important;
+            }
+            a:hover {
+                color: #2EE6B2 !important;
+                border-bottom-color: #2EE6B2 !important;
+            }
+            .link-arrow {
+                color: #22CC9D !important;
+            }
+            .link-arrow:hover {
+                color: #2EE6B2 !important;
+            }
+            .link-arrow:after {
+                background: url(../img/arrow-black.svg) no-repeat center right !important;
+                background-size: contain !important;
+            }
+            blockquote {
+                border-left: solid #22CC9D 2px !important;
+            }
+        </style>
+
+        <div class="body-wrap"><div class="body-wrap-inner">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="/"><div class="nav-logo">
+                        <h1>Evan Eckels</h1>
+                    </div></a>
+                    <ul>
+                        <!--<a href="../about.html"><li>About</li></a>-->
+                        <label class="switch">
+                            <input class="switch-input" type="checkbox" id="darkmode-slider" onclick="changeTheme()" />
+                            <span class="switch-label" data-on="On" data-off="Off"></span>
+                            <span class="switch-handle"></span>
+                        </label>
+                        <a href="../work"><li>Work</li></a>
+                        <a href="../posts"><li>Posts</li></a>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="work-header-wrapper">
+                <div class="work-header" style="background-image: url('../img/curve2.jpg'); background-position: center center;"></div>
+            </div>
+            <div class="work-header-text-wrapper">
+                <div class="work-header-text">
+                    <div class="title">
+                        <img src="../img/cube_icon.png" alt="ReCard logo" />
+                        <h1>ReCard</h1>
+                    </div>
+                    <div class="sub-title">
+                        <div class="left">
+                            <h3>Scope</h3>
+                            <p class="scope">AI-powered credit card optimization platform that recommends the best card for every purchase, tracks statement credits and annual perks, and manages your entire card portfolio.</p>
+                            <a href="https://www.recard.app/" class="link-arrow-wrap" target="_blank"><p class="link-arrow">Visit ReCard</p></a>
+                        </div>
+                        <div class="right-wrapper">
+                            <div class="right">
+                                <div class="right-item">
+                                    <h3>My Role</h3>
+                                    <p>Creator, Full-Stack Developer, AI Developer</p>
+                                </div>
+                                <div class="right-item">
+                                    <h3>Team</h3>
+                                    <p>Evan Eckels</p>
+                                </div>
+                                <div class="right-item">
+                                    <h3>Timeline</h3>
+                                    <p>December 2024 - Present</p>
+                                </div>
+                                <div class="right-item">
+                                    <h3>Tech Stack</h3>
+                                    <p><span>Frontend: </span>React, TypeScript, Tailwind CSS, Radix UI<br><span>Backend: </span>Node.js, Express, LangGraph<br><span>Database: </span>Firebase Firestore, Firebase Auth<br><span>Deployment: </span>Vercel (frontend), Render (backend)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+
+        <div class="work-body-wrapper"><div class="work-body">
+            <div class="body-content">
+                <h3>The Problem</h3>
+                <p>If you have more than one or two credit cards, you know the challenge: every card has its own rewards structure, bonus categories, statement credits, and annual perks. Keeping track of which card to use for groceries versus gas versus dining out, remembering to activate quarterly categories, and making sure you actually use all those annual credits before they expire is a part-time job in itself.</p>
+                <p>Most people leave hundreds or even thousands of dollars in rewards on the table each year simply because it's too complex to optimize across their full card portfolio. Spreadsheets help, but they can't keep up with rotating categories and they certainly can't tell you in real time which card to pull out at checkout.</p>
+
+                <h3>Key Features</h3>
+                <h5>Smart Recommendations</h5>
+                <p>ReCard analyzes your card portfolio and tells you the best card to use for every purchase. Whether you're buying groceries, filling up your tank, or booking a flight, ReCard instantly identifies which card earns you the most rewards for that specific transaction.</p>
+
+                <h5>Credit Tracking</h5>
+                <p>Never miss a statement credit again. ReCard tracks all of your annual and monthly credits across every card, showing you what you've used, what's remaining, and when credits are about to expire. No more leaving free money on the table.</p>
+
+                <h5>Card Portfolio Management</h5>
+                <p>Get a complete view of your entire card portfolio in one place. ReCard keeps track of annual fees, reward rates, sign-up bonus progress, and key benefits for every card you own, making it easy to evaluate whether each card is still earning its keep.</p>
+
+                <h5>Personalized Insights</h5>
+                <p>ReCard learns your spending patterns and provides tailored suggestions to help you get more value from your cards. From reminders to activate bonus categories to alerts when a better card exists for your habits, it keeps you ahead of the curve.</p>
+
+                <h3>Technical Approach</h3>
+                <p>At its core, ReCard is powered by an AI multi-agent system built with LangGraph. Rather than relying on a single monolithic model, the system uses specialized agents that each handle a different aspect of the recommendation pipeline: one agent processes and understands card reward structures, another analyzes the purchase context, and a coordinator agent synthesizes their outputs into a clear, actionable recommendation.</p>
+                <p>The frontend is built with React and TypeScript, styled with Tailwind CSS and Radix UI components for a clean, accessible interface. On the backend, Node.js and Express handle the API layer, while Firebase provides authentication and data storage. This stack was chosen to enable rapid iteration while keeping the app fast and responsive.</p>
+
+                <h3>Current Status</h3>
+                <p>ReCard is currently in beta and free to use. The platform is actively being developed with new features and improvements being shipped regularly. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets.</p>
+            </div>
+        </div></div>
+
+        <div class="body-wrap"><div class="body-wrap-inner">
+            <footer>
+                <div class="footer-inner">
+                    <div class="left">
+                        <p>&copy; <span id="date-target">2020</span> Evan Eckels</p>
+                    </div>
+                    <div class="right">
+                        <a href="mailto:eveckels@gmail.com">
+                            <img src="../img/email.svg" class="light-mode" alt="Email me" />
+                            <img src="../img/email-dark.svg" class="dark-mode" alt="Email me" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/evaneckels/" target="_blank">
+                            <img src="../img/linkedin.svg" class="light-mode" alt="LinkedIn logo" />
+                            <img src="../img/linkedin-dark.svg" class="dark-mode" alt="LinkedIn logo" />
+                        </a>
+                        <a href="https://github.com/eckels" target="_blank">
+                            <img src="../img/github.svg" class="light-mode" alt="Github logo" />
+                            <img src="../img/github-dark.svg" class="dark-mode" alt="Github logo" />
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div></div>
+        <script src="../js/dark-mode-cont.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

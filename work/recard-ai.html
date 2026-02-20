@@ -127,6 +127,7 @@
                 <p>Most people leave hundreds of dollars in rewards on the table each year because it's just too much to keep in your head. I tried spreadsheets for a while, but they can't keep up with rotating categories, and they definitely can't tell you which card to pull out when you're standing in the grocery store checkout line. I wanted to build something that could actually reason about your whole wallet — and that meant building an AI system, not just a lookup table.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-credits.png" alt="ReCard credits tracking page showing monthly credit status and expiration timers" class="shadow" />
+                    <p class="caption">My Credits page tracking statement credits across all cards</p>
                 </div>
 
                 <h3>Multi-Agent Architecture</h3>
@@ -143,6 +144,7 @@
                 <p>A Composer node sits at the end of the graph and merges multi-agent outputs into one coherent response. This matters because some queries touch multiple domains — "what's my best dining card and do I have any credits expiring?" hits both Spend and Credit, and you shouldn't see two separate answers.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-agent-processing.png" alt="ReCard multi-agent timeline showing stats calculation across multiple agents" class="shadow" />
+                    <p class="caption">Multi-agent timeline streaming stats, ROI, and lost value calculations</p>
                 </div>
                 <p>I also wanted to test whether all this complexity was actually worth it, so I built a Simplified mode with a single Advisor agent that dynamically injects tools based on the query. This gave me a clean A/B comparison between the two approaches, which turned out to be really useful for measuring whether splitting things up actually improved response quality (it did).</p>
 
@@ -172,6 +174,7 @@
                 <p>So where does all this card data actually come from? There are hundreds of credit cards on the market, each with dozens of fields — reward rates, annual fees, statement credits, rotating categories, sign-up bonuses. And issuers change things constantly. If the system tells you the Amex Gold earns 4x on dining but Amex quietly bumped it to 4x on restaurants and dropped groceries to 3x, you're getting bad advice and you don't even know it. Garbage in, garbage out. I needed a dedicated admin dashboard for managing card data end-to-end, so I built Card Manager.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-card-manager.png" alt="Card Manager admin dashboard showing American Express Gold Card details and reward multipliers" class="shadow" />
+                    <p class="caption">Card Manager dashboard with card details, multipliers, credits, and perks</p>
                 </div>
                 <h5>AI-Powered Data Extraction</h5>
                 <p>I was spending hours manually entering card data — copying reward rates from issuer websites, cross-referencing benefits pages, typing out credit details field by field. It didn't scale. So I built an extraction pipeline: paste raw marketing copy from a card issuer's website and Gemini extracts structured data across 5 data types (card details, credits, perks, multipliers, and rotating categories). What used to take 30 minutes per card now takes about 30 seconds.</p>
@@ -181,7 +184,7 @@
                 <p>Every schema is validated with Zod, from card details down to individual rotating category periods. This is how 25+ tools across 6 agents all trust the data they're reading — because it was extracted by AI, validated by schema, and version-controlled with date ranges before any agent ever touches it.</p>
 
                 <h3>Interactive Chat</h3>
-                <p>I wanted the chat to feel responsive and transparent. Responses stream token-by-token via Server-Sent Events, and there's a real-time agent timeline showing which LangGraph node is currently executing. You can actually watch your query get rewritten, see it route to an agent, and follow the tool calls as they happen. It makes the AI feel less like a black box.</p>
+                <p>I wanted the chat to feel responsive and transparent. Responses stream token-by-token via Server-Sent Events, and there's a real-time agent timeline showing which LangGraph node is currently executing. You can actually watch your query get rewritten, see it route to an agent, and follow the tool calls as they happen. It makes the AI feel less like a black box. I also persisted chat history so you can pick up previous conversations where you left off.</p>
                 <h5>Component Blocks</h5>
                 <p>One of the things I focused on was making the AI responses actionable, not just informational. When the AI recommends a card or finds an expiring credit, it doesn't just tell you about it — it renders interactive component blocks inline:</p>
                 <ul>
@@ -191,10 +194,12 @@
                 </ul>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-chat-component.png" alt="ReCard chat showing inline card component with Discover it Cash Back recommendation" class="shadow" />
+                    <p class="caption">Inline card component rendered in the chat response</p>
                 </div>
-                <p>I also persisted chat history so you can pick up previous conversations where you left off.</p>
+                <p>The chat doesn't just give you information — it can execute actions too. Tell it you used a credit and it'll update your records on the spot.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-credit-action.png" alt="ReCard chat marking a Dunkin' credit as used with inline credit component showing redeemed status" class="shadow" />
+                    <p class="caption">Marking a credit as used directly from the chat</p>
                 </div>
 
                 <h3>AI Digest</h3>
@@ -207,6 +212,7 @@
                 </ul>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-digest.png" alt="ReCard daily digest showing expiring credits, quick win, and monthly progress" class="shadow" />
+                    <p class="caption">Daily digest with expiring credits, quick win, and monthly progress</p>
                 </div>
                 <p>During the first few days of each month, you also get a rundown of newly refreshed credits and a recap of what you missed last month. The digest is cached daily in Firebase and refreshes at midnight ET. The goal is simple: you open the app and immediately know if there's something you should act on today.</p>
 
@@ -220,7 +226,7 @@
                 <p>I track response latency against tiered thresholds: excellent under 500ms, good under 2s, acceptable under 5s. All evals run against curated datasets with fixture data, so results are reproducible and I can catch regressions quickly.</p>
 
                 <h3>Current Status: Beta</h3>
-                <p>ReCard is currently in beta and free to use. I'm actively shipping improvements to the agent pipeline, adding new tools, and refining the eval suite. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets. Next up, I'm working on expanding the card catalog and adding support for business cards.</p>
+                <p>ReCard is currently in beta and free to use. The entire experience is optimized for mobile — the chat, digest, credits, and card manager all work well on a phone, which matters because the whole point is to have the right answer when you're standing at the register. I'm actively shipping improvements to the agent pipeline, adding new tools, and refining the eval suite. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets. Next up, I'm working on expanding the card catalog and adding support for business cards.</p>
             </div>
         </div></div>
 

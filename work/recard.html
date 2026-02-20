@@ -125,6 +125,9 @@
                 <h3>The Problem</h3>
                 <p>I have way too many credit cards. Each one has its own rewards structure, bonus categories, statement credits, and annual perks. Keeping track of which card to use for groceries versus gas versus dining out, remembering to activate quarterly categories, and making sure I actually use all those annual credits before they expire — it honestly felt like a part-time job.</p>
                 <p>Most people leave hundreds of dollars in rewards on the table each year because it's just too much to keep in your head. I tried spreadsheets for a while, but they can't keep up with rotating categories, and they definitely can't tell you which card to pull out when you're standing in the grocery store checkout line. I wanted to build something that could actually reason about your whole wallet — and that meant building an AI system, not just a lookup table.</p>
+                <div class="center">
+                    <img src="img/recard_screenshots/recard-credits.png" alt="ReCard credits tracking page showing monthly credit status and expiration timers" class="shadow" />
+                </div>
 
                 <h3>Multi-Agent Architecture</h3>
                 <p>I started with a single AI agent that handled everything — spend recommendations, credit tracking, card management, all of it. It didn't work well. The agent would try to do too many things at once and give unfocused answers. If you asked about your best dining card, it would also pull in credit info and stats you didn't ask for. So I split it up.</p>
@@ -138,6 +141,9 @@
                     <li><b>Chat Agent</b> — general conversation, card catalog lookups, and help.</li>
                 </ul>
                 <p>A Composer node sits at the end of the graph and merges multi-agent outputs into one coherent response. This matters because some queries touch multiple domains — "what's my best dining card and do I have any credits expiring?" hits both Spend and Credit, and you shouldn't see two separate answers.</p>
+                <div class="center">
+                    <img src="img/recard_screenshots/recard-agent-processing.png" alt="ReCard multi-agent timeline showing stats calculation across multiple agents" class="shadow" />
+                </div>
                 <p>I also wanted to test whether all this complexity was actually worth it, so I built a Simplified mode with a single Advisor agent that dynamically injects tools based on the query. This gave me a clean A/B comparison between the two approaches, which turned out to be really useful for measuring whether splitting things up actually improved response quality (it did).</p>
 
                 <h3>Intelligent Routing</h3>
@@ -164,6 +170,9 @@
 
                 <h3>Managing Credit Card Data</h3>
                 <p>So where does all this card data actually come from? There are hundreds of credit cards on the market, each with dozens of fields — reward rates, annual fees, statement credits, rotating categories, sign-up bonuses. And issuers change things constantly. If the system tells you the Amex Gold earns 4x on dining but Amex quietly bumped it to 4x on restaurants and dropped groceries to 3x, you're getting bad advice and you don't even know it. Garbage in, garbage out. I needed a dedicated admin dashboard for managing card data end-to-end, so I built Card Manager.</p>
+                <div class="center">
+                    <img src="img/recard_screenshots/recard-card-manager.png" alt="Card Manager admin dashboard showing American Express Gold Card details and reward multipliers" class="shadow" />
+                </div>
                 <h5>AI-Powered Data Extraction</h5>
                 <p>I was spending hours manually entering card data — copying reward rates from issuer websites, cross-referencing benefits pages, typing out credit details field by field. It didn't scale. So I built an extraction pipeline: paste raw marketing copy from a card issuer's website and Gemini extracts structured data across 5 data types (card details, credits, perks, multipliers, and rotating categories). What used to take 30 minutes per card now takes about 30 seconds.</p>
                 <p>Getting clean data out of an LLM is harder than it sounds. LLM outputs are messy — malformed JSON, trailing commas, markdown wrappers, you name it. I built a 6-step JSON parsing fallback chain that handles progressively worse output formats. The extraction rules themselves are loaded from markdown files that teach the AI what to look for per data type, which means I can tweak extraction behavior without touching code. There's also a refinement loop so I can iterate on the output before committing it, and model fallback from Gemini Pro to Flash if the primary model is slow or unavailable.</p>
@@ -180,7 +189,13 @@
                     <li>Credit components showing usage status with one-tap mark-as-used</li>
                     <li>Perk and multiplier components for quick reference on reward rates</li>
                 </ul>
-                <p>All write actions support single-turn undo. Say the AI marks a credit as used but you didn't actually redeem it yet — you can reverse it immediately without starting a new conversation. I also persisted chat history so you can pick up previous conversations where you left off.</p>
+                <div class="center">
+                    <img src="img/recard_screenshots/recard-chat-component.png" alt="ReCard chat showing inline card component with Discover it Cash Back recommendation" class="shadow" />
+                </div>
+                <p>I also persisted chat history so you can pick up previous conversations where you left off.</p>
+                <div class="center">
+                    <img src="img/recard_screenshots/recard-credit-action.png" alt="ReCard chat marking a Dunkin' credit as used with inline credit component showing redeemed status" class="shadow" />
+                </div>
 
                 <h3>AI Digest</h3>
                 <p>This is the feature that makes you actually open the app. The problem it solves is simple: you forget. You forget about that Amex dining credit, you forget that your Hilton free night certificate expires next week, you forget that you haven't used your TSA PreCheck reimbursement. So every morning, ReCard generates a personalized daily summary that appears when you start a new chat. It covers the things that actually matter:</p>
@@ -190,6 +205,9 @@
                     <li>Monthly progress on credit redemption</li>
                     <li>Conditional insights on ROI, spending patterns, or missed value</li>
                 </ul>
+                <div class="center">
+                    <img src="img/recard_screenshots/recard-digest.png" alt="ReCard daily digest showing expiring credits, quick win, and monthly progress" class="shadow" />
+                </div>
                 <p>During the first few days of each month, you also get a rundown of newly refreshed credits and a recap of what you missed last month. The digest is cached daily in Firebase and refreshes at midnight ET. The goal is simple: you open the app and immediately know if there's something you should act on today.</p>
 
                 <h3>Evaluations</h3>

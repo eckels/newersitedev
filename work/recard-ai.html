@@ -123,25 +123,25 @@
         <div class="work-body-wrapper"><div class="work-body">
             <div class="body-content">
                 <h3>The Problem</h3>
-                <p>I have way too many credit cards. Each one has its own rewards structure, bonus categories, statement credits, and annual perks. Keeping track of which card to use for groceries versus gas versus dining out, remembering to activate quarterly categories, and making sure I actually use all those annual credits before they expire — it honestly felt like a part-time job.</p>
-                <p>Most people leave hundreds of dollars in rewards on the table each year because it's just too much to keep in your head. I tried spreadsheets for a while, but they can't keep up with rotating categories, and they definitely can't tell you which card to pull out when you're standing in the grocery store checkout line. I wanted to build something that could actually reason about your whole wallet — and that meant building an AI system, not just a lookup table.</p>
+                <p>I have way too many credit cards. Each one has its own rewards structure, bonus categories, statement credits, and annual perks. Keeping track of which card to use for groceries versus gas versus dining out, remembering to activate quarterly categories, and making sure I actually use all those annual credits before they expire. It honestly felt like a part-time job.</p>
+                <p>Most people leave hundreds of dollars in rewards on the table each year because it's just too much to keep in your head. I tried spreadsheets for a while, but they can't keep up with rotating categories, and they definitely can't tell you which card to pull out when you're standing in the grocery store checkout line. I wanted to build something that could actually reason about your whole wallet, and that meant building an AI system, not just a lookup table.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-credits.png" alt="ReCard credits tracking page showing monthly credit status and expiration timers" class="shadow" />
                     <p class="caption">My Credits page tracking statement credits across all cards</p>
                 </div>
 
                 <h3>Multi-Agent Architecture</h3>
-                <p>I started with a single AI agent that handled everything — spend recommendations, credit tracking, card management, all of it. It didn't work well. The agent would try to do too many things at once and give unfocused answers. If you asked about your best dining card, it would also pull in credit info and stats you didn't ask for. So I split it up.</p>
+                <p>I started with a single AI agent that handled everything: spend recommendations, credit tracking, card management, all of it. It didn't work well. The agent would try to do too many things at once and give unfocused answers. If you asked about your best dining card, it would also pull in credit info and stats you didn't ask for. So I split it up.</p>
                 <p>ReCard is now a LangGraph multi-agent system where each agent owns a specific domain. In orchestrated mode, 6 specialized agents handle incoming queries:</p>
                 <ul>
-                    <li><b>Spend Agent</b> — recommends the best card for a purchase using pre-loaded wallet data, no tool calls needed.</li>
-                    <li><b>Credit Agent</b> — tracks statement credits, expiring benefits, and redemption history.</li>
-                    <li><b>Card Agent</b> — read-only wallet info like renewals, card details, and annual fees.</li>
-                    <li><b>Stats Agent</b> — usage analytics, ROI calculations, and savings metrics.</li>
-                    <li><b>Action Agent</b> — write operations like marking credits as used, freezing cards, or managing your wallet.</li>
-                    <li><b>Chat Agent</b> — general conversation, card catalog lookups, and help.</li>
+                    <li><b>Spend Agent</b>: recommends the best card for a purchase using pre-loaded wallet data, no tool calls needed.</li>
+                    <li><b>Credit Agent</b>: tracks statement credits, expiring benefits, and redemption history.</li>
+                    <li><b>Card Agent</b>: read-only wallet info like renewals, card details, and annual fees.</li>
+                    <li><b>Stats Agent</b>: usage analytics, ROI calculations, and savings metrics.</li>
+                    <li><b>Action Agent</b>: write operations like marking credits as used, freezing cards, or managing your wallet.</li>
+                    <li><b>Chat Agent</b>: general conversation, card catalog lookups, and help.</li>
                 </ul>
-                <p>A Composer node sits at the end of the graph and merges multi-agent outputs into one coherent response. This matters because some queries touch multiple domains — "what's my best dining card and do I have any credits expiring?" hits both Spend and Credit, and you shouldn't see two separate answers.</p>
+                <p>A Composer node sits at the end of the graph and merges multi-agent outputs into one coherent response. This matters because some queries touch multiple domains, like "what's my best dining card and do I have any credits expiring?" hits both Spend and Credit, and you shouldn't see two separate answers.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-agent-processing.png" alt="ReCard multi-agent timeline showing stats calculation across multiple agents" class="shadow" />
                     <p class="caption">Multi-agent timeline streaming stats, ROI, and lost value calculations</p>
@@ -153,40 +153,40 @@
                 <h5>Query Rewriting</h5>
                 <p>Short or vague queries get expanded using conversation history. So if you just type "What about Amex?" the system rewrites that to something like "What statement credits are available on my American Express Gold card?" This step alone eliminated a huge class of misroutes.</p>
                 <h5>Semantic Routing</h5>
-                <p>I embed the rewritten query and compare it against a bank of example questions for each agent using cosine similarity. This runs in about 50-100ms. If the top match scores above 0.75 confidence, we route directly — no LLM call needed. Most queries resolve here, which keeps things fast.</p>
+                <p>I embed the rewritten query and compare it against a bank of example questions for each agent using cosine similarity. This runs in about 50-100ms. If the top match scores above 0.75 confidence, we route directly with no LLM call needed. Most queries resolve here, which keeps things fast.</p>
                 <h5>LLM Routing</h5>
-                <p>For the trickier queries where semantic matching isn't confident enough, the top-2 candidate agents each run a self-assessment to claim or decline the query. This is slower but catches edge cases that embedding similarity misses. So if you ask something like "should I cancel my Sapphire Reserve?" — that could be a card question or a stats question — the agents themselves figure out who's better equipped. The result is that most users get sub-100ms routing, while the harder queries still land in the right place.</p>
+                <p>For the trickier queries where semantic matching isn't confident enough, the top-2 candidate agents each run a self-assessment to claim or decline the query. This is slower but catches edge cases that embedding similarity misses. So if you ask something like "should I cancel my Sapphire Reserve?", that could be a card question or a stats question, and the agents themselves figure out who's better equipped. The result is that most users get sub-100ms routing, while the harder queries still land in the right place.</p>
 
                 <h3>Tool System</h3>
                 <p>The agents need to actually do things, not just talk. When you ask ReCard to mark a credit as used or tell you your ROI, it's calling real tools that read and write to your data. I built 25+ structured tools, each validated with Zod schemas, and organized them by domain:</p>
                 <ul>
-                    <li>Card read (6 tools) — wallet details, renewals, benefits</li>
-                    <li>Card write (5 tools) — add, remove, freeze, set preferred</li>
-                    <li>Credit read (4 tools) — credit status, expiration, history</li>
-                    <li>Stats (7 tools) — ROI, savings, usage analytics</li>
-                    <li>Actions (2 tools) — mark credits used, bulk operations</li>
-                    <li>Digest (1 tool) — daily summary generation</li>
+                    <li>Card read (6 tools): wallet details, renewals, benefits</li>
+                    <li>Card write (5 tools): add, remove, freeze, set preferred</li>
+                    <li>Credit read (4 tools): credit status, expiration, history</li>
+                    <li>Stats (7 tools): ROI, savings, usage analytics</li>
+                    <li>Actions (2 tools): mark credits used, bulk operations</li>
+                    <li>Digest (1 tool): daily summary generation</li>
                 </ul>
-                <p>One thing I learned early on is that giving an agent too many tools made it unfocused — similar to the single-agent problem but at the tool level. So I capped each agent's tool count. The Spend Agent gets zero tools because it reasons from pre-loaded data; the Credit Agent gets 3; the Action Agent gets 5. This kept responses tight and relevant.</p>
-                <p>In Simplified mode, the single Advisor agent uses dynamic tool injection — it receives a different tool set depending on the detected query domain. This was the main challenge of the single-agent approach: how do you give one agent access to 25+ tools without overwhelming it? Filtering tools by domain turned out to be the answer. But all of these tools are only as good as the card data behind them — and keeping that data accurate is its own challenge.</p>
+                <p>One thing I learned early on is that giving an agent too many tools made it unfocused, similar to the single-agent problem but at the tool level. So I capped each agent's tool count. The Spend Agent gets zero tools because it reasons from pre-loaded data; the Credit Agent gets 3; the Action Agent gets 5. This kept responses tight and relevant.</p>
+                <p>In Simplified mode, the single Advisor agent uses dynamic tool injection. It receives a different tool set depending on the detected query domain. This was the main challenge of the single-agent approach: how do you give one agent access to 25+ tools without overwhelming it? Filtering tools by domain turned out to be the answer. But all of these tools are only as good as the card data behind them, and keeping that data accurate is its own challenge.</p>
 
                 <h3>Managing Credit Card Data</h3>
-                <p>So where does all this card data actually come from? There are hundreds of credit cards on the market, each with dozens of fields — reward rates, annual fees, statement credits, rotating categories, sign-up bonuses. And issuers change things constantly. If the system tells you the Amex Gold earns 4x on dining but Amex quietly bumped it to 4x on restaurants and dropped groceries to 3x, you're getting bad advice and you don't even know it. Garbage in, garbage out. I needed a dedicated admin dashboard for managing card data end-to-end, so I built Card Manager.</p>
+                <p>So where does all this card data actually come from? There are hundreds of credit cards on the market, each with dozens of fields like reward rates, annual fees, statement credits, rotating categories, sign-up bonuses. And issuers change things constantly. If the system tells you the Amex Gold earns 4x on dining but Amex quietly bumped it to 4x on restaurants and dropped groceries to 3x, you're getting bad advice and you don't even know it. Garbage in, garbage out. I needed a dedicated admin dashboard for managing card data end-to-end, so I built Card Manager.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-card-manager.png" alt="Card Manager admin dashboard showing American Express Gold Card details and reward multipliers" class="shadow" />
                     <p class="caption">Card Manager dashboard with card details, multipliers, credits, and perks</p>
                 </div>
                 <h5>AI-Powered Data Extraction</h5>
-                <p>I was spending hours manually entering card data — copying reward rates from issuer websites, cross-referencing benefits pages, typing out credit details field by field. It didn't scale. So I built an extraction pipeline: paste raw marketing copy from a card issuer's website and Gemini extracts structured data across 5 data types (card details, credits, perks, multipliers, and rotating categories). What used to take 30 minutes per card now takes about 30 seconds.</p>
-                <p>Getting clean data out of an LLM is harder than it sounds. LLM outputs are messy — malformed JSON, trailing commas, markdown wrappers, you name it. I built a 6-step JSON parsing fallback chain that handles progressively worse output formats. The extraction rules themselves are loaded from markdown files that teach the AI what to look for per data type, which means I can tweak extraction behavior without touching code. There's also a refinement loop so I can iterate on the output before committing it, and model fallback from Gemini Pro to Flash if the primary model is slow or unavailable.</p>
+                <p>I was spending hours manually entering card data. Copying reward rates from issuer websites, cross-referencing benefits pages, typing out credit details field by field. It didn't scale. So I built an extraction pipeline: paste raw marketing copy from a card issuer's website and Gemini extracts structured data across 5 data types (card details, credits, perks, multipliers, and rotating categories). What used to take 30 minutes per card now takes about 30 seconds.</p>
+                <p>Getting clean data out of an LLM is harder than it sounds. LLM outputs are messy: malformed JSON, trailing commas, markdown wrappers, you name it. I built a 6-step JSON parsing fallback chain that handles progressively worse output formats. The extraction rules themselves are loaded from markdown files that teach the AI what to look for per data type, which means I can tweak extraction behavior without touching code. There's also a refinement loop so I can iterate on the output before committing it, and model fallback from Gemini Pro to Flash if the primary model is slow or unavailable.</p>
                 <h5>Keeping Data Fresh</h5>
-                <p>Extracting data once isn't enough — I needed to know when reality drifted from what the database said. So I built an AI comparison system that checks stored records against fresh content from issuer websites. It flags mismatches, missing items, and outdated info so I can review changes before they hit the database. When benefits do change, the system creates a new version with effective date ranges rather than overwriting the old data. That way, queries about past card configurations still return accurate results.</p>
-                <p>Every schema is validated with Zod, from card details down to individual rotating category periods. This is how 25+ tools across 6 agents all trust the data they're reading — because it was extracted by AI, validated by schema, and version-controlled with date ranges before any agent ever touches it.</p>
+                <p>Extracting data once isn't enough. I needed to know when reality drifted from what the database said. So I built an AI comparison system that checks stored records against fresh content from issuer websites. It flags mismatches, missing items, and outdated info so I can review changes before they hit the database. When benefits do change, the system creates a new version with effective date ranges rather than overwriting the old data. That way, queries about past card configurations still return accurate results.</p>
+                <p>Every schema is validated with Zod, from card details down to individual rotating category periods. This is how 25+ tools across 6 agents all trust the data they're reading. It was extracted by AI, validated by schema, and version-controlled with date ranges before any agent ever touches it.</p>
 
                 <h3>Interactive Chat</h3>
                 <p>I wanted the chat to feel responsive and transparent. Responses stream token-by-token via Server-Sent Events, and there's a real-time agent timeline showing which LangGraph node is currently executing. You can actually watch your query get rewritten, see it route to an agent, and follow the tool calls as they happen. It makes the AI feel less like a black box. I also persisted chat history so you can pick up previous conversations where you left off.</p>
                 <h5>Component Blocks</h5>
-                <p>One of the things I focused on was making the AI responses actionable, not just informational. When the AI recommends a card or finds an expiring credit, it doesn't just tell you about it — it renders interactive component blocks inline:</p>
+                <p>One of the things I focused on was making the AI responses actionable, not just informational. When the AI recommends a card or finds an expiring credit, it doesn't just tell you about it. Instead, it renders interactive component blocks inline:</p>
                 <ul>
                     <li>Card components with actions like add, remove, freeze, or set as preferred</li>
                     <li>Credit components showing usage status with one-tap mark-as-used</li>
@@ -196,7 +196,7 @@
                     <img src="img/recard_screenshots/recard-chat-component.png" alt="ReCard chat showing inline card component with Discover it Cash Back recommendation" class="shadow" />
                     <p class="caption">Inline card component rendered in the chat response</p>
                 </div>
-                <p>The chat doesn't just give you information — it can execute actions too. Tell it you used a credit and it'll update your records on the spot.</p>
+                <p>The chat doesn't just give you information. It can execute actions too. Tell it you used a credit and it'll update your records on the spot.</p>
                 <div class="center">
                     <img src="img/recard_screenshots/recard-credit-action.png" alt="ReCard chat marking a Dunkin' credit as used with inline credit component showing redeemed status" class="shadow" />
                     <p class="caption">Marking a credit as used directly from the chat</p>
@@ -206,7 +206,7 @@
                 <p>This is the feature that makes you actually open the app. The problem it solves is simple: you forget. You forget about that Amex dining credit, you forget that your Hilton free night certificate expires next week, you forget that you haven't used your TSA PreCheck reimbursement. So every morning, ReCard generates a personalized daily summary that appears when you start a new chat. It covers the things that actually matter:</p>
                 <ul>
                     <li>Credits expiring in the next 7-14 days</li>
-                    <li>A "Quick Win" — the single most actionable credit to use today</li>
+                    <li>A "Quick Win": the single most actionable credit to use today</li>
                     <li>Monthly progress on credit redemption</li>
                     <li>Conditional insights on ROI, spending patterns, or missed value</li>
                 </ul>
@@ -226,7 +226,7 @@
                 <p>I track response latency against tiered thresholds: excellent under 500ms, good under 2s, acceptable under 5s. All evals run against curated datasets with fixture data, so results are reproducible and I can catch regressions quickly.</p>
 
                 <h3>Current Status: Beta</h3>
-                <p>ReCard is currently in beta and free to use. The entire experience is optimized for mobile — the chat, digest, credits, and card manager all work well on a phone, which matters because the whole point is to have the right answer when you're standing at the register. I'm actively shipping improvements to the agent pipeline, adding new tools, and refining the eval suite. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets. Next up, I'm working on expanding the card catalog and adding support for business cards.</p>
+                <p>ReCard is currently in beta and free to use. The entire experience is optimized for mobile. The chat, digest, credits, and card manager all work well on a phone, which matters because the whole point is to have the right answer when you're standing at the register. I'm actively shipping improvements to the agent pipeline, adding new tools, and refining the eval suite. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets. Next up, I'm working on expanding the card catalog and adding support for business cards.</p>
             </div>
         </div></div>
 

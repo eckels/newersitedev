@@ -22,8 +22,17 @@
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <meta name="msapplication-TileImage" content="../img/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#FFFFFF">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content="Cardzen is an AI-powered credit card optimization app that recommends the best card for every purchase, tracks statement credits and annual perks, and manages your whole wallet. A deep dive into its LangGraph multi-agent system, tool pipeline, AI data engine, native iOS build, and evaluation harness." />
+        <meta name="keywords" content="Cardzen, credit card optimization, AI assistant, LangGraph, multi-agent, semantic routing, React, TypeScript, Capacitor, iOS, Gemini, LangSmith, Evan Eckels" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Cardzen AI - Evan Eckels" />
+        <meta property="og:description" content="An AI-powered credit card optimization app: best card for every purchase, statement credit tracking, and a full wallet manager. Inside its LangGraph multi-agent system, AI data engine, and native iOS build." />
+        <meta property="og:url" content="https://www.evaneckels.com/work/cardzen-ai.html" />
+        <meta property="og:image" content="https://www.evaneckels.com/work/img/cardzen_screenshots/home-daily-zen.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cardzen AI - Evan Eckels" />
+        <meta name="twitter:description" content="An AI-powered credit card optimization app. Inside its LangGraph multi-agent system, AI data engine, and native iOS build." />
+        <meta name="twitter:image" content="https://www.evaneckels.com/work/img/cardzen_screenshots/home-daily-zen.png" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110019881-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -59,6 +68,29 @@
             blockquote {
                 border-left: solid #22CC9D 2px !important;
             }
+            .phone-row {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 24px;
+                margin: 24px 0 8px 0;
+            }
+            .phone-row .phone {
+                flex: 0 1 260px;
+                max-width: 260px;
+                margin: 0;
+            }
+            .body-content .phone-row img {
+                width: 100%;
+                max-width: 100%;
+                max-height: none;
+                margin: 0 0 6px 0;
+                border-radius: 10px;
+            }
+            .phone-row .caption {
+                margin-top: 2px !important;
+            }
         </style>
 
         <div class="body-wrap"><div class="body-wrap-inner">
@@ -86,14 +118,14 @@
             <div class="work-header-text-wrapper">
                 <div class="work-header-text">
                     <div class="title">
-                        <img src="../img/cube_icon.png" alt="Cardzen AI logo" />
+                        <img src="../img/cardzen-logo.svg" alt="Cardzen logo" />
                         <h1>Cardzen AI</h1>
                     </div>
                     <div class="sub-title">
                         <div class="left">
                             <h3>Scope</h3>
-                            <p class="scope">AI-powered credit card optimization platform that recommends the best card for every purchase, tracks statement credits and annual perks, and manages your entire wallet.</p>
-                            <a href="https://cardzen.ai/" class="link-arrow-wrap" target="_blank"><p class="link-arrow">Visit Cardzen AI</p></a>
+                            <p class="scope">An AI-powered credit card optimization app that recommends the best card for every purchase, tracks statement credits and annual perks, and manages your entire wallet. Available on the web and as a native iOS app.</p>
+                            <a href="https://cardzen.ai/" class="link-arrow-wrap" target="_blank"><p class="link-arrow">Visit Cardzen</p></a>
                         </div>
                         <div class="right-wrapper">
                             <div class="right">
@@ -111,7 +143,7 @@
                                 </div>
                                 <div class="right-item">
                                     <h3>Tech Stack</h3>
-                                    <p><span>Frontend: </span>React, TypeScript, Tailwind CSS, Radix UI<br><span>Backend: </span>Node.js, Express, LangGraph<br><span>Database: </span>Firebase Firestore, Firebase Auth<br><span>Deployment: </span>Vercel (frontend), Render (backend)</p>
+                                    <p><span>Frontend: </span>React, TypeScript, Vite, Tailwind CSS, Radix UI<br><span>Mobile: </span>Capacitor (native iOS), PWA<br><span>Backend: </span>Node.js, Express, LangGraph<br><span>AI: </span>Gemini 3.1 Flash Lite, OpenAI embeddings, LangSmith<br><span>Data: </span>Firebase Firestore, Firebase Auth<br><span>Payments: </span>Stripe, RevenueCat (Apple IAP)<br><span>Deployment: </span>Vercel (web), Render (API)</p>
                                 </div>
                             </div>
                         </div>
@@ -124,109 +156,144 @@
             <div class="body-content">
                 <h3>The Problem</h3>
                 <p>I have way too many credit cards. Each one has its own rewards structure, bonus categories, statement credits, and annual perks. Keeping track of which card to use for groceries versus gas versus dining out, remembering to activate quarterly categories, and making sure I actually use all those annual credits before they expire. It honestly felt like a part-time job.</p>
-                <p>Most people leave hundreds of dollars in rewards on the table each year because it's just too much to keep in your head. I tried spreadsheets for a while, but they can't keep up with rotating categories, and they definitely can't tell you which card to pull out when you're standing in the grocery store checkout line. I wanted to build something that could actually reason about your whole wallet, and that meant building an AI system, not just a lookup table.</p>
+                <p>Most people leave money on the table every year because it is just too much to keep in your head. The average rewards card holder forfeits $120 or more in unused credits annually. I tried spreadsheets for a while, but they cannot keep up with rotating categories, and they definitely cannot tell you which card to pull out when you are standing in the grocery store checkout line. I wanted to build something that could actually reason about your whole wallet, and that meant building an AI system, not just a lookup table.</p>
                 <div class="center">
-                    <img src="img/recard_screenshots/recard-credits.png" alt="Cardzen AI credits tracking page showing monthly credit status and expiration timers" class="shadow" />
-                    <p class="caption">My Credits page tracking statement credits across all cards</p>
+                    <img src="img/cardzen_screenshots/credits-active.png" alt="Cardzen My Credits page showing 34 active credits worth $1923 remaining, sorted by urgency with expiring soon warnings" class="shadow" />
+                    <p class="caption">My Credits, tracking $1923 across 34 active credits with the most urgent ones first</p>
                 </div>
 
                 <h3>Multi-Agent Architecture</h3>
-                <p>I started with a single AI agent that handled everything: spend recommendations, credit tracking, card management, all of it. It didn't work well. The agent would try to do too many things at once and give unfocused answers. If you asked about your best dining card, it would also pull in credit info and stats you didn't ask for. So I split it up.</p>
-                <p>Cardzen AI is now a LangGraph multi-agent system where each agent owns a specific domain. In orchestrated mode, 6 specialized agents handle incoming queries:</p>
+                <p>I started with a single AI agent that handled everything: spend recommendations, credit tracking, card management, all of it. It did not work well. The agent tried to do too many things at once and gave unfocused answers. If you asked about your best dining card, it would also pull in credit info and stats you never asked for. So I split it up.</p>
+                <p>My first split went too far. I built a six-agent orchestrated graph with separate agents for spend, credits, cards, stats, actions, and chat, plus a composer node to merge their outputs. It worked, but it was over-engineered. Every query paid the cost of routing and composition, latency suffered, and most of those specialized agents overlapped so much that the boundaries between them were arbitrary. The lesson was that more agents is not the same as better answers.</p>
+                <p>Cardzen now runs a leaner LangGraph design that is both faster and easier to reason about. One compiled graph, five nodes, three agents:</p>
                 <ul>
-                    <li><b>Spend Agent</b>: recommends the best card for a purchase using pre-loaded wallet data, no tool calls needed.</li>
-                    <li><b>Credit Agent</b>: tracks statement credits, expiring benefits, and redemption history.</li>
-                    <li><b>Card Agent</b>: read-only wallet info like renewals, card details, and annual fees.</li>
-                    <li><b>Stats Agent</b>: usage analytics, ROI calculations, and savings metrics.</li>
-                    <li><b>Action Agent</b>: write operations like marking credits as used, freezing cards, or managing your wallet.</li>
-                    <li><b>Chat Agent</b>: general conversation, card catalog lookups, and help.</li>
+                    <li><b>Advisor</b>: the unified read agent. It handles every recommendation, credit lookup, card detail, and stats question. Instead of splitting these into separate agents, I give the Advisor a different tool set depending on the query, so it stays focused without carrying every tool at once.</li>
+                    <li><b>Action</b>: the only agent that writes. Marking a credit as used, freezing a card, or setting a preferred card all run through here. It is gated so that write operations are a Pro feature.</li>
+                    <li><b>Chat</b>: general conversation, full card catalog lookups, and help. When a question matches the help center, the relevant article is injected into its context.</li>
                 </ul>
-                <p>A Composer node sits at the end of the graph and merges multi-agent outputs into one coherent response. This matters because some queries touch multiple domains, like "what's my best dining card and do I have any credits expiring?" hits both Spend and Credit, and you shouldn't see two separate answers.</p>
+                <p>A <b>Router</b> node classifies intent up front, and a <b>Composer</b> node merges results only when a query genuinely spans more than one agent, like "what is my best dining card and do I have any credits expiring?" For the common case of a single-agent query, the Composer returns the answer verbatim with no extra LLM call. The old spend, credit, card, and stats agents did not disappear; they were absorbed into the Advisor, which is the part of this rebuild I am most happy with.</p>
                 <div class="center">
-                    <img src="img/recard_screenshots/recard-agent-processing.png" alt="Cardzen AI multi-agent timeline showing stats calculation across multiple agents" class="shadow" />
-                    <p class="caption">Multi-agent timeline streaming stats, ROI, and lost value calculations</p>
+                    <img src="img/cardzen_screenshots/chat-recommendation.png" alt="Cardzen chat recommending Chase Freedom Flex for 5x at Whole Foods with American Express Gold as a backup, with inline card components" class="shadow" />
+                    <p class="caption">The Advisor recommending a card, with the reasoning and a backup option</p>
                 </div>
-                <p>I also wanted to test whether all this complexity was actually worth it, so I built a Simplified mode with a single Advisor agent that dynamically injects tools based on the query. This gave me a clean A/B comparison between the two approaches, which turned out to be really useful for measuring whether splitting things up actually improved response quality (it did).</p>
 
                 <h3>Intelligent Routing</h3>
-                <p>So how does the system figure out which agent should handle your question? With 6 agents, if a query goes to the wrong one, the response is useless. I needed a routing pipeline that was both fast and accurate, so I built it in three phases:</p>
-                <h5>Query Rewriting</h5>
-                <p>Short or vague queries get expanded using conversation history. So if you just type "What about Amex?" the system rewrites that to something like "What statement credits are available on my American Express Gold card?" This step alone eliminated a huge class of misroutes.</p>
+                <p>So how does the system figure out which agent should handle your question? If a query lands on the wrong agent, the answer is useless. I needed routing that was both fast and accurate, so I built it in three layers that escalate only when they have to.</p>
+                <h5>Deterministic Help Gate</h5>
+                <p>Generic app questions like "how do I add a card?" are caught first by a regex and in-memory scoring pass against the help content. These never need an embedding or an LLM call. They go straight to the Chat agent with the right help article attached.</p>
                 <h5>Semantic Routing</h5>
-                <p>I embed the rewritten query and compare it against a bank of example questions for each agent using cosine similarity. This runs in about 50-100ms. If the top match scores above 0.75 confidence, we route directly with no LLM call needed. Most queries resolve here, which keeps things fast.</p>
+                <p>For everything else, I embed the message with OpenAI's text-embedding-3-small model and compare it against a bank of example questions for each agent using cosine similarity. The example embeddings are precomputed at startup, so this runs in well under 100ms. If the top match clears the confidence threshold, the query routes directly with no LLM call. Roughly 80% of queries resolve here, which keeps the app feeling instant.</p>
                 <h5>LLM Routing</h5>
-                <p>For the trickier queries where semantic matching isn't confident enough, the top-2 candidate agents each run a self-assessment to claim or decline the query. This is slower but catches edge cases that embedding similarity misses. So if you ask something like "should I cancel my Sapphire Reserve?", that could be a card question or a stats question, and the agents themselves figure out who's better equipped. The result is that most users get sub-100ms routing, while the harder queries still land in the right place.</p>
+                <p>The remaining 20% are the genuinely ambiguous or compound queries, the cases where two agents both look like a good fit. Only then does a Gemini call step in to make the final call and, when needed, fan the query out to more than one agent. Most users get sub-100ms routing while the hard cases still land in the right place. Routing also tags each query with a domain (spend, credit, card, stats, snapshot, or mixed), which is what tells the Advisor exactly which tools to load.</p>
 
                 <h3>Tool System</h3>
-                <p>The agents need to actually do things, not just talk. When you ask Cardzen AI to mark a credit as used or tell you your ROI, it's calling real tools that read and write to your data. I built 25+ structured tools, each validated with Zod schemas, and organized them by domain:</p>
+                <p>The agents need to actually do things, not just talk. When you ask Cardzen to mark a credit as used or tell you your ROI, it is calling real tools that read and write your data. I built roughly 25 structured tools, each validated with a Zod schema, and organized them by domain:</p>
                 <ul>
-                    <li>Card read (6 tools): wallet details, renewals, benefits</li>
-                    <li>Card write (5 tools): add, remove, freeze, set preferred</li>
-                    <li>Credit read (4 tools): credit status, expiration, history</li>
-                    <li>Stats (7 tools): ROI, savings, usage analytics</li>
-                    <li>Actions (2 tools): mark credits used, bulk operations</li>
-                    <li>Digest (1 tool): daily summary generation</li>
+                    <li>Card read (6 tools): wallet details, renewals, components</li>
+                    <li>Card write (5 tools): add, remove, freeze, set preferred, set open date</li>
+                    <li>Credit read (5 tools): status, prioritized list, expiring, history, streaks</li>
+                    <li>Stats (7 tools): ROI, savings, lost value, category and time-based analytics</li>
+                    <li>Actions (2 tools): update credit usage, update component tracking</li>
+                    <li>Daily snapshot (1 tool): the data behind the morning briefing</li>
                 </ul>
-                <p>One thing I learned early on is that giving an agent too many tools made it unfocused, similar to the single-agent problem but at the tool level. So I capped each agent's tool count. The Spend Agent gets zero tools because it reasons from pre-loaded data; the Credit Agent gets 3; the Action Agent gets 5. This kept responses tight and relevant.</p>
-                <p>In Simplified mode, the single Advisor agent uses dynamic tool injection. It receives a different tool set depending on the detected query domain. This was the main challenge of the single-agent approach: how do you give one agent access to 25+ tools without overwhelming it? Filtering tools by domain turned out to be the answer. But all of these tools are only as good as the card data behind them, and keeping that data accurate is its own challenge.</p>
+                <p>One thing I learned early is that handing an agent every tool makes it unfocused, the same failure as the single-agent problem but one level down. So the Advisor only ever sees the tools for the current query domain. A spend question gets zero tools because the Advisor can reason directly from your preloaded wallet data; a credit question gets the four credit-read tools; a stats question gets all seven stats tools. The Chat agent only ever carries the two catalog tools it needs.</p>
+                <p>Write tools are Pro-only, and I enforce that in three independent layers rather than trusting one check. The router refuses to send a free user's request to the Action agent, the Action agent registers no write tools for a free user in the first place, and each write tool short-circuits on its own if it is somehow reached without Pro. It is defense in depth, so a single missed check cannot let a free account write data. But all of these tools are only as good as the card data behind them, and keeping that data accurate is its own challenge.</p>
 
                 <h3>Managing Credit Card Data</h3>
-                <p>So where does all this card data actually come from? There are hundreds of credit cards on the market, each with dozens of fields like reward rates, annual fees, statement credits, rotating categories, sign-up bonuses. And issuers change things constantly. If the system tells you the Amex Gold earns 4x on dining but Amex quietly bumped it to 4x on restaurants and dropped groceries to 3x, you're getting bad advice and you don't even know it. Garbage in, garbage out. I needed a dedicated admin dashboard for managing card data end-to-end, so I built Card Manager.</p>
+                <p>So where does all this card data actually come from? There are hundreds of credit cards on the market, each with dozens of fields like reward rates, annual fees, statement credits, rotating categories, and sign-up bonuses. And issuers change things constantly. If the system tells you the Amex Gold earns 4x on dining but Amex quietly moved that benefit, you are getting bad advice and you do not even know it. Garbage in, garbage out. I needed a dedicated admin tool for managing card data end to end, so I built Card Manager, a separate React and Express app that talks to the same database.</p>
                 <div class="center">
-                    <img src="img/recard_screenshots/recard-card-manager.png" alt="Card Manager admin dashboard showing American Express Gold Card details and reward multipliers" class="shadow" />
-                    <p class="caption">Card Manager dashboard with card details, multipliers, credits, and perks</p>
+                    <img src="img/cardzen_screenshots/card-manager.png" alt="Card Manager admin dashboard showing American Express Gold Card details, multipliers, credits, and perks tabs" class="shadow" />
+                    <p class="caption">Card Manager, the admin app for editing card details, multipliers, credits, and perks</p>
                 </div>
                 <h5>AI-Powered Data Extraction</h5>
-                <p>I was spending hours manually entering card data. Copying reward rates from issuer websites, cross-referencing benefits pages, typing out credit details field by field. It didn't scale. So I built an extraction pipeline: paste raw marketing copy from a card issuer's website and Gemini extracts structured data across 5 data types (card details, credits, perks, multipliers, and rotating categories). What used to take 30 minutes per card now takes about 30 seconds.</p>
-                <p>Getting clean data out of an LLM is harder than it sounds. LLM outputs are messy: malformed JSON, trailing commas, markdown wrappers, you name it. I built a 6-step JSON parsing fallback chain that handles progressively worse output formats. The extraction rules themselves are loaded from markdown files that teach the AI what to look for per data type, which means I can tweak extraction behavior without touching code. There's also a refinement loop so I can iterate on the output before committing it.</p>
+                <p>I was spending hours manually entering card data: copying reward rates from issuer websites, cross-referencing benefits pages, typing out credit details field by field. It did not scale. So I built an extraction pipeline where I paste raw marketing copy from a card issuer's website and Gemini extracts structured data across five data types (card details, credits, perks, multipliers, and rotating categories). What used to take 30 minutes per card now takes about 30 seconds.</p>
+                <p>Getting clean data out of an LLM is harder than it sounds. Model output is messy: malformed JSON, trailing commas, markdown wrappers, you name it. I built a six-step JSON parsing fallback chain that handles progressively worse output formats. The extraction rules themselves are loaded from markdown files that teach the model what to look for per data type, which means I can tune extraction behavior without touching code. There is also a refinement loop so I can iterate on the output before committing it.</p>
                 <h5>Keeping Data Fresh</h5>
-                <p>Extracting data once isn't enough. I needed to know when reality drifted from what the database said. So I built an AI comparison system that checks stored records against fresh content from issuer websites. It flags mismatches, missing items, and outdated info so I can review changes before they hit the database. When benefits do change, the system creates a new version with effective date ranges rather than overwriting the old data. That way, queries about past card configurations still return accurate results.</p>
-                <p>Every schema is validated with Zod, from card details down to individual rotating category periods. This is how 25+ tools across 6 agents all trust the data they're reading. It was extracted by AI, validated by schema, and version-controlled with date ranges before any agent ever touches it.</p>
+                <p>Extracting data once is not enough. I needed to know when reality drifted from what the database said. So I built an AI comparison system that diffs stored records against fresh content from issuer websites and flags mismatches, missing items, and outdated info for me to review before any of it hits production. When benefits do change, the system writes a new version with effective date ranges rather than overwriting the old record. That way, queries about a past card configuration still return accurate results.</p>
+                <p>Every schema is validated with Zod, from card details down to individual rotating category periods. This is how roughly 25 tools across three agents can all trust the data they read. It was extracted by AI, validated by schema, and version-controlled with date ranges before any agent ever touches it.</p>
 
                 <h3>Interactive Chat</h3>
-                <p>I wanted the chat to feel responsive and transparent. Responses stream token-by-token via Server-Sent Events, and there's a real-time agent timeline showing which LangGraph node is currently executing. You can actually watch your query get rewritten, see it route to an agent, and follow the tool calls as they happen. It makes the AI feel less like a black box. I also persisted chat history so you can pick up previous conversations where you left off.</p>
+                <p>I wanted the chat to feel responsive and transparent. Responses stream token by token over Server-Sent Events, and a live timeline shows which LangGraph node is currently executing. You can watch your query route to an agent and follow the tool calls as they happen, which makes the AI feel less like a black box. Each node is also wrapped in a circuit breaker, a timeout, and retries, so a single slow tool call cannot hang the whole response. Chat history is persisted, so you can pick up previous conversations where you left off.</p>
                 <h5>Component Blocks</h5>
-                <p>One of the things I focused on was making the AI responses actionable, not just informational. When the AI recommends a card or finds an expiring credit, it doesn't just tell you about it. Instead, it renders interactive component blocks inline:</p>
+                <p>One thing I focused on was making the AI responses actionable, not just informational. When Cardzen recommends a card or surfaces an expiring credit, it does not just describe it. It renders interactive component blocks inline:</p>
                 <ul>
                     <li>Card components with actions like add, remove, freeze, or set as preferred</li>
                     <li>Credit components showing usage status with one-tap mark-as-used</li>
                     <li>Perk and multiplier components for quick reference on reward rates</li>
                 </ul>
-                <div class="center">
-                    <img src="img/recard_screenshots/recard-chat-component.png" alt="Cardzen AI chat showing inline card component with Discover it Cash Back recommendation" class="shadow" />
-                    <p class="caption">Inline card component rendered in the chat response</p>
-                </div>
-                <p>The chat doesn't just give you information. It can execute actions too. Tell it you used a credit and it'll update your records on the spot.</p>
-                <div class="center">
-                    <img src="img/recard_screenshots/recard-credit-action.png" alt="Cardzen AI chat marking a Dunkin' credit as used with inline credit component showing redeemed status" class="shadow" />
-                    <p class="caption">Marking a credit as used directly from the chat</p>
+                <p>The chat does not just give you information, it can execute actions too. Tell it you used a credit and it updates your records on the spot, then renders a confirmation card showing exactly what changed.</p>
+                <div class="phone-row">
+                    <div class="phone">
+                        <img src="img/cardzen_screenshots/chat-credits-breakdown.png" alt="Cardzen chat response listing credits with inline structured credit chips showing used and remaining amounts" class="shadow" />
+                        <p class="caption">Inline credit chips rendered in a chat response</p>
+                    </div>
+                    <div class="phone">
+                        <img src="img/cardzen_screenshots/chat-action.png" alt="Cardzen chat marking a Dunkin credit as used, with a confirmation card showing the change from $0 to $7" class="shadow" />
+                        <p class="caption">Marking a credit as used directly from chat</p>
+                    </div>
                 </div>
 
-                <h3>AI Digest</h3>
-                <p>This is the feature that makes you actually open the app. The problem it solves is simple: you forget. You forget about that Amex dining credit, you forget that your Hilton free night certificate expires next week, you forget that you haven't used your TSA PreCheck reimbursement. So every morning, Cardzen AI generates a personalized daily summary that appears when you start a new chat. It covers the things that actually matter:</p>
+                <h3>Daily Zen</h3>
+                <p>This is the feature that makes you actually open the app. The problem it solves is simple: you forget. You forget about that Amex dining credit, you forget that a certificate expires next week, you forget that you never used your TSA PreCheck reimbursement. So every morning, Cardzen generates a personalized briefing called Daily Zen that appears when you start a new chat. A selector picks the most relevant sections for the day from a catalog of twelve, anchored by two that always matter:</p>
                 <ul>
-                    <li>Credits expiring in the next 7-14 days</li>
-                    <li>A "Quick Win": the single most actionable credit to use today</li>
-                    <li>Monthly progress on credit redemption</li>
-                    <li>Conditional insights on ROI, spending patterns, or missed value</li>
+                    <li><b>Expiring Soon</b>: credits in danger of being forfeited</li>
+                    <li><b>Quick Win</b>: the single most actionable thing to do today</li>
+                    <li>A contextual third slot: monthly progress, newly refreshed credits, a recap of what you missed last month, ROI, or a category-based card pick</li>
                 </ul>
                 <div class="center">
-                    <img src="img/recard_screenshots/recard-digest.png" alt="Cardzen AI daily digest showing expiring credits, quick win, and monthly progress" class="shadow" />
-                    <p class="caption">Daily digest with expiring credits, quick win, and monthly progress</p>
+                    <img src="img/cardzen_screenshots/home-daily-zen.png" alt="Cardzen home screen showing the Daily Zen briefing with expiring soon, quick win, your progress, and insight sections" class="shadow" />
+                    <p class="caption">Daily Zen, the AI briefing that greets you when you open the app</p>
                 </div>
-                <p>During the first few days of each month, you also get a rundown of newly refreshed credits and a recap of what you missed last month. The digest is cached daily in Firebase and refreshes at midnight ET. The goal is simple: you open the app and immediately know if there's something you should act on today.</p>
+                <p>It is generated by Gemini, and a layered validator checks every briefing for length, formatting, and leaked instructions before it is shown. If the validator rejects the output twice, an escape valve drops any custom user instructions on the third try, so an adversarial preference cannot poison every retry. A scheduled job warms the briefing for all Pro users at 5 AM Eastern, so your first app open of the day hits a cached, ready summary instead of waiting on a model. The goal is simple: open the app and immediately know if there is something you should act on today.</p>
+
+                <h3>Your Wallet at a Glance</h3>
+                <p>Chat is the front door, but Cardzen is also a full wallet manager you can browse directly. Two surfaces do most of the work.</p>
+                <p><b>My Cards</b> gives each card its own page with the annual fee, reward currency, foreign transaction fee, and the date you opened it, plus tabs for its multipliers, credits, and perks. Every multiplier, credit, and perk can be toggled on or off, so the AI only ever recommends and counts the benefits you actually use. If you never touch a card's prepaid-hotel multiplier, hide it, and it stops skewing your recommendations.</p>
+                <div class="phone-row">
+                    <div class="phone">
+                        <img src="img/cardzen_screenshots/cards-overview.png" alt="Cardzen My Cards overview for American Express Gold showing annual fee, rewards type, FX fee, and start date" class="shadow" />
+                        <p class="caption">A card overview with fees, rewards, and key dates</p>
+                    </div>
+                    <div class="phone">
+                        <img src="img/cardzen_screenshots/cards-multipliers.png" alt="Cardzen multipliers tab for American Express Gold listing earn rates by category, with one hidden multiplier faded out" class="shadow" />
+                        <p class="caption">Per-category earn rates, each one toggleable</p>
+                    </div>
+                </div>
+                <p><b>My Credits</b> has two modes. The Active view lists everything usable right now, sorted by urgency with clear expiring-soon warnings. The Year view rolls credits up per card with a utilization percentage, which is exactly the number you want when deciding whether a card is worth its annual fee. Tapping any credit opens a detail sheet with a usage slider and per-period status. That manual tracking exists for a real reason: banks do not report statement credit usage through any API, so the only reliable record is the one you keep, and Cardzen makes keeping it a single drag.</p>
+                <div class="phone-row">
+                    <div class="phone">
+                        <img src="img/cardzen_screenshots/credit-detail.png" alt="Cardzen credit detail sheet for a $75 Lululemon credit with quarter buttons and a usage slider set to $57 of $75" class="shadow" />
+                        <p class="caption">A credit detail sheet with quarter history and a usage slider</p>
+                    </div>
+                    <div class="phone">
+                        <img src="img/cardzen_screenshots/credits-year.png" alt="Cardzen My Credits year view showing per-card utilization percentages across seven cards for renewal decisions" class="shadow" />
+                        <p class="caption">The Year view, utilization per card for renewal decisions</p>
+                    </div>
+                </div>
+
+                <h3>One Codebase, Three Surfaces</h3>
+                <p>The whole point of Cardzen is to have the right answer when you are standing at the register, so it had to be excellent on a phone. The same React codebase ships three ways: a web app, an installable progressive web app, and a native iOS app built with Capacitor. Two build paths share almost all of their code. The web build includes a service worker and runtime caching; the native build tree-shakes that out and syncs into Xcode, gated by a single compile-time flag.</p>
+                <p>The native shell is where the more interesting engineering lives. I wrote a custom Swift text-to-speech plugin so the assistant can read responses aloud. It owns the speech synthesizer's lifetime and pre-primes the system speech daemon at launch to kill the delay on the first word, with a safety timeout so a stuck utterance can never freeze playback. A second custom plugin wires up MapKit so the "near me" chat flow can find nearby places. On top of that there is offline handling, a strict Content-Security-Policy with no inline scripts, and a startup cover that bridges the native launch screen to the first React paint so there is never a white flash.</p>
+                <div class="center">
+                    <img src="img/cardzen_screenshots/sidebar.png" alt="Cardzen mobile navigation drawer showing New Chat, My Credits, My Cards, recent chats, credit and card previews, and a Pro Plan account footer" class="shadow" />
+                    <p class="caption">The mobile navigation drawer, the densest surface in the app</p>
+                </div>
+
+                <h3>Free and Pro</h3>
+                <p>Cardzen is free to start. On the free plan you can add unlimited cards, browse the full catalog, see your whole wallet, and ask the assistant for recommendations. Pro, at $3 a month or $24 a year, unlocks the parts that turn it from a reference into a habit: credit tracking, AI write-actions in chat, the Daily Zen briefing, wallet analytics, full credit history, and natural voice playback.</p>
+                <p>Billing runs on two rails because the app does. On the web, payments go through Stripe. On iOS, they go through Apple in-app purchases via RevenueCat, and the native build hides the web payment options entirely to stay within Apple's rules. A shared resolver understands both rails plus private invite grants, so a user's Pro status is consistent no matter where they subscribed. Downgrades are non-destructive: your tracking history is preserved and your numbers reappear instantly the moment you re-upgrade.</p>
 
                 <h3>Evaluations</h3>
-                <p>If the AI tells you to use the wrong card for a purchase, or says a credit has expired when it hasn't, that erodes trust immediately. So how do I know the system is actually giving good answers? I set up a LangSmith evaluation pipeline with both code-based and LLM-based evaluators.</p>
+                <p>If the AI tells you to use the wrong card for a purchase, or says a credit has expired when it has not, that erodes trust immediately. So how do I know the system is actually giving good answers? I set up a LangSmith evaluation pipeline with both code-based and LLM-based evaluators.</p>
                 <h5>Code-Based Evals</h5>
-                <p>These check for objective things: does the response contain expected content, is it an appropriate length, does it include the right component blocks? They're fast and deterministic, which makes them easy to run on every change.</p>
+                <p>These check objective things: does the response contain the expected content, is it an appropriate length, does it include the right component blocks? They are fast and deterministic, which makes them cheap to run on every change.</p>
                 <h5>LLM-Based Evals</h5>
-                <p>These score responses on relevance, accuracy, helpfulness, and clarity on a 0-1 scale. I also built dedicated safety and correctness judges that specifically flag hallucinated card benefits or incorrect reward rates. That kind of mistake is the worst thing this system can do, so I wanted a dedicated check for it.</p>
+                <p>These score responses on relevance, accuracy, helpfulness, and clarity on a 0 to 1 scale. I also built dedicated safety and correctness judges that specifically flag hallucinated card benefits or incorrect reward rates. That kind of mistake is the worst thing this system can do, so it gets its own check.</p>
                 <h5>Latency Benchmarks</h5>
                 <p>I track response latency against tiered thresholds: excellent under 500ms, good under 2s, acceptable under 5s. All evals run against curated datasets with fixture data, so results are reproducible and I can catch regressions quickly.</p>
 
-                <h3>Current Status: Beta</h3>
-                <p>Cardzen AI is currently in beta and free to use. The entire experience is optimized for mobile. The chat, digest, credits, and card manager all work well on a phone, which matters because the whole point is to have the right answer when you're standing at the register. I'm actively shipping improvements to the agent pipeline, adding new tools, and refining the eval suite. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets. Next up, I'm working on expanding the card catalog and adding more AI-powered features.</p>
+                <h3>Where It Is Headed</h3>
+                <p>Cardzen is live on the web and on the iOS App Store, mobile-first by design because the whole product is built around that moment at the checkout line. I am actively shipping improvements to the agent pipeline, expanding the card catalog, and growing the eval suite. The goal is to make credit card optimization effortless for everyone, not just the rewards enthusiasts who spend hours on forums and spreadsheets. Next up, more cards, more AI-powered features, and continuing to make the right answer feel like it was there all along.</p>
             </div>
         </div></div>
 
